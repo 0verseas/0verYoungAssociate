@@ -1,0 +1,29 @@
+{
+  "name": "0veryoungassociate",
+  "version": "1.0.0",
+  "description": "Young Associate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "harp src dist && babel dist/js -d dist/js",
+    "docker-build": "docker run -it --rm -v $PWD:/0verYoungAssociate -w /0verYoungAssociate node:14.16.0 sh -c 'npm install && npm run build' ",
+    "serve": "harp src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0verseas/0verYoungAssociate.git"
+  },
+  "author": "",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/0verseas/0verYoungAssociate/issues"
+  },
+  "homepage": "https://github.com/0verseas/0verYoungAssociate#readme",
+  "dependencies": {
+    "@babel/cli": "^7.20.0",
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "harp": "^0.46.0"
+  },
+  "devDependencies": {}
+}
