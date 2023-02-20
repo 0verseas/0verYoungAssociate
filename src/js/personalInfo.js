@@ -569,7 +569,7 @@
             await $schoolNameTextForm.hide();
         }
 
-        if (_originSchoolCountryId !== '' && _schoolCountryId !== _originSchoolCountryId && _systemId === 1) {
+        if (_originSchoolCountryId !== '' && _schoolCountryId !== _originSchoolCountryId) {
             $('.alert-schoolCountry').show();
         } else {
             $('.alert-schoolCountry').hide();
