@@ -27,10 +27,10 @@
 		_setHeader(json);
 		// _checkConfirm(json);
 	})
-	.catch((err) => {
+	.catch(async (err) => {
 		console.error(err);
         if (err.status && err.status === 401) {
-			swal({title: `請重新登入`, type:"warning", confirmButtonText: '確定', allowOutsideClick: false})
+			await swal({title: `請重新登入`, type:"warning", confirmButtonText: '確定', allowOutsideClick: false})
 			.then(()=>{
 				location.href = "./index.html";
 			});
