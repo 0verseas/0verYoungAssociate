@@ -9,9 +9,6 @@
 
 <div class="row" id="form-placementSelect">
 	<div class="col-12">
-		<div class="alert alert-warning" role="alert">
-			請選填 <strong class="text-danger">分發志願類組</strong>。
-		</div>
 
 		<a class="btn btn-success quota-button" id="btn-group1Quota" href="#" target="_blank"><i class="fa fa-link" aria-hidden="true"></i> 第一類組名額查詢</a>
 		<a class="btn btn-success quota-button" id="btn-group2Quota" href="#" target="_blank"><i class="fa fa-link" aria-hidden="true"></i> 第二類組名額查詢</a>
@@ -38,15 +35,6 @@
 									<br/>第二類組—理、工相關學系。
 									<br/>第三類組—醫事、農、生技、生活應用相關學系。
 								</li>
-								<li>
-									志願類組亦是<strong class="text-danger">「聯合分發」秋季入學志願類組，請謹慎選填</strong>。
-								</li>
-								<li>
-									「聯合分發」時，<strong class="text-danger">除二、三類組得互跨類組選填志願外</strong>，其餘皆不得跨類組選填志願。
-								</li>
-								<li>
-									「聯合分發」時，最多可選填 <strong class="text-danger">70</strong> 個志願。
-								</li>
 							</ol>
 						</p>
 						<p>
@@ -62,16 +50,15 @@
 		<div class="row">
 			<div class="col-xl-6">
 				<div class="card card-bottom">
-					<div class="card-header">分發類組清單</div>
+					<div class="card-header">招生校系清單</div>
 					<div class="card-body">
 						<div class="row">
 							<div class="col-5">
 								<select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select-optionFilter">
 									<option value="cardCode">志願代碼</option>
-									<option value="group">類組</option>
-									<option value="mainGroup">學群</option>
 									<option value="school">學校名稱</option>
 									<option value="dept">系所名稱</option>
+									<option value="mainGroup">學群</option>
 								</select>
 							</div>
 							<div class="col-7">
@@ -85,8 +72,8 @@
 								</div>
 							</div>
 						</div>
-						
-						<br/>
+
+						<hr>
 
 						<div class="row">
 							<div class="col-12">
@@ -110,7 +97,7 @@
 			</div>
 			<div class="col-xl-6">
 				<div class="card card-bottom">
-					<div class="card-header">志願類組</div>
+					<div class="card-header">已填選志願</div>
 					<div class="card-body">
 						<table class="table table-hover">
 							<tbody id="wish-list">
@@ -131,16 +118,21 @@
 	</div>
 </div>
 
-
-<div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal modal-centerd-lg" tabindex="-1" role="dialog" id="docs-modal">
+	<div class="modal-dialog modal-lg modal-dialog-centerd" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<i class="fa fa-3x fa-exclamation-circle" style="color:crimson; margin: 0 auto;" aria-hidden="true"></i>
-				<br />
+				<h4 class="modal-title" id="modal-title"></h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
-			<div class="modal-body" style="color: royalblue; font-weight:600;" id="warningText">
+			<div class="modal-body" id='modal-body'>
 
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" id="btn-info">詳細資訊</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
 			</div>
 		</div>
 	</div>

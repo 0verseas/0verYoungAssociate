@@ -199,31 +199,10 @@ const student = (() => {
 		});
 	}
 
-	function getStudentAdmissionPlacementApplyWay() {
-		return fetch(baseUrl + `/young-associate/admission-apply-way`, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			credentials: 'include'
-		})
-	}
-
-	function setStudentAdmissionPlacementApplyWay(data) {
-		return fetch(baseUrl + `/young-associate/admission-apply-way`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(data),
-			credentials: 'include'
-		})
-	}
-
-	function getPlacementSelectionOrder() {
+	function getAdmissionSelectionOrder() {
 		var urls = [
 		baseUrl + '/young-associate/admission-order',
-		baseUrl + '/young-associate/admission-order-list?type=placement'
+		baseUrl + '/young-associate/admission-order-list'
 		]
 		const grabContent = url => fetch(url, {
 			method: 'GET',
@@ -235,7 +214,7 @@ const student = (() => {
 		return Promise.all(urls.map(grabContent))
 	}
 
-	function setPlacementSelectionOrder(data) {
+	function setAdmissionSelectionOrder(data) {
 		return fetch(baseUrl + `/young-associate/admission-order`, {
 			method: 'POST',
 			headers: {
@@ -243,7 +222,7 @@ const student = (() => {
 			},
 			body: JSON.stringify(data),
 			credentials: 'include'
-		})
+		});
 	}
 
 	function getOrderResultList(url) {
@@ -326,11 +305,9 @@ const student = (() => {
 		setStudentPersonalData,
 		verifyQualification,
 		getVerifyQualification,
-		getStudentAdmissionPlacementApplyWay,
-		setStudentAdmissionPlacementApplyWay,
 		getStudentRegistrationProgress,
-		getPlacementSelectionOrder,
-		setPlacementSelectionOrder,
+		getAdmissionSelectionOrder,
+		setAdmissionSelectionOrder,
 		getOrderResultList,
 		dataConfirmation,
 		sizeConversion,
