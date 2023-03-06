@@ -1,6 +1,6 @@
 <%- include ('components/_studentInfo') %>
 
-<h2 class="text-center title">資料預覽</h2>
+<h2 class="text-center title">志願檢視</h2>
 
 <hr>
 
@@ -8,12 +8,34 @@
 	<ul>
 	<li>請點選「預覽個人資料」<strong>確認填寫的資料是否正確</strong>。(非正式文件，僅供檢視)</li>
 
-	<li><strong>資料確認不須更改後</strong>，可點選「確認並鎖定個人基本資料」後，至下載報名表件頁面產生報名表件。</li>
+	<li><strong>填報資料（含志願）確認不須更改後</strong>，可點選「確認填報資料」後，至下載報名表件頁面產生報名表件。</li>
 
-	<li>請注意，點選「確認並鎖定個人基本資料」後，<strong>將無法修改個人資料</strong>。</li>
+	<li>請注意，點選「確認填報資料」後，<strong>將無法修改個人資料及志願</strong>。</li>
 
-	<li>如已點選「確認並鎖定個人基本資料」後，需再修改資料請填寫「<a class="correction-form-link" target="_blank">資料修正表</a>」或是<strong>重新註冊新的帳號</strong>。</li>
+	<li>如已點選「確認填報資料」後，需再修改個人基本資料（不含志願），請填寫「<a class="correction-form-link" target="_blank">資料修正表</a>」或是<strong>重新註冊新的帳號</strong>。</li>
 	</ul>
+</div>
+
+<div class="row" id="form-order">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header bg-primary text-white">分發志願</div>
+			<div class="card-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>序號</th>
+							<th><span id="dept-code-title">志願代碼</span></th>
+							<th>校系名稱</th>
+						</tr>
+					</thead>
+					<tbody id="tbody-order">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<hr>
 </div>
 
 <div class="row" id="div-previewData">
