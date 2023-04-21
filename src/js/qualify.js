@@ -14,10 +14,15 @@
 	// 海外僑生
 	const $isDistribution = $signUpForm.find('.isDistribution');
 	const $distributionMoreQuestion = $signUpForm.find('.distributionMoreQuestion');
+
 	const $stayLimitRadio = $signUpForm.find('.radio-stayLimit');
+	const $alertStayLimitCertif = $signUpForm.find('.alert-stayLimiCertif');
+
 	const $hasBeenTaiwanRadio = $signUpForm.find('.radio-hasBeenTaiwan');
 	const $whyHasBeenTaiwanRadio = $signUpForm.find('.radio-whyHasBeenTaiwan');
+
 	const $ethnicChineseRadio = $signUpForm.find('.radio-ethnicChinese');
+
 	const $citizenshipContinentSelect = $signUpForm.find('.select-citizenshipContinent');
 	const $citizenshipSelect = $signUpForm.find('.select-citizenshipCountry');
 	const $citizenshipList = $('#citizenshipList');
@@ -196,9 +201,16 @@
 	function _checkStayLimitValidation() {
 		const $this = $(this);
 		const option = +$this.val();
+		$alertStayLimitCertif.hide();
 		$signUpForm.find('.stayLimitAlert').hide();
-		if (option===1) {
+		switch (option) {
+			case 1:
 				$signUpForm.find('.stayLimitAlert.invalid').fadeIn();
+				break;
+			case 2:
+				$alertStayLimitCertif.fadeIn();
+				break;
+			default:
 		}
 	}
 
@@ -345,11 +357,11 @@
 		// 曾分發來臺
 		!!data.has_come_to_taiwan &&
 		$signUpForm.find('.isDistribution[value=1]').prop('checked',true).trigger('change') &&
-		$signUpForm.find('.input-distributionTime').val(data.come_to_taiwan_at).trigger('change') &&
+		$signUpForm.find('.input-distributionTime').val(data.is_ethnic_Chinese).trigger('change') &&
 		$signUpForm.find(`.distributionMoreQuestion[value=${data.reason_of_come_to_taiwan}]`).prop('checked',true).trigger('change');
 
 		// 是否華裔學生
-		$signUpForm.find('.radio-ethnicChinese[value=1]').prop('checked',true).trigger('change');
+		$signUpForm.find(`.radio-ethnicChinese[value=${data.overseas_residence_time}]`).prop('checked',true).trigger('change');
 
 		// 海外居留年限
 		$signUpForm.find(`.radio-stayLimit[value=${data.overseas_residence_time}]`).prop('checked',true).trigger('change');
