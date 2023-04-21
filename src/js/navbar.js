@@ -119,6 +119,15 @@
 			$('.nav-personalInfo').addClass('disabled');
 			$('.nav-personalInfo').addClass('show-qualify-first');
 			$('.nav-personalInfo').click(function(e){e.preventDefault();});
+			$('.nav-personalInfo').attr("href", '');
+		}
+
+		if(data.has_personal_info ===false){
+			// 學生還沒有填寫個人基本資料時，出現提示訊息（請先填寫個人基本資料）
+			$('.nav-admission').addClass('disabled');
+			$('.nav-admission').addClass('show-personal-info-first');
+			$('.nav-admission').click(function(e){e.preventDefault();});
+			$('.nav-admission').attr("href", '');
 		}
 
 		// 分發志願
