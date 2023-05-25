@@ -11,6 +11,10 @@
 	const $signUpForm = $('#form-signUp');
 	const $saveBtn = $signUpForm.find('.btn-save');
 
+	// 學制選項
+    const $systemArea = $('.system-area');
+    const $systemChooseOption = $('.system-option');
+
 	// 海外僑生
 	const $isDistribution = $signUpForm.find('.isDistribution');
 	const $distributionMoreQuestion = $signUpForm.find('.distributionMoreQuestion');
@@ -36,6 +40,8 @@
 	// $identityRadio.on('change', _handleChangeIdentity);
 	$saveBtn.on('click', _handleSave);
 
+	// 學制
+    $systemChooseOption.on('change',_handleSystemChoose);
 	// 海外僑生
 	$isDistribution.on('change', _switchShowDistribution);
 	$distributionMoreQuestion.on('change', _checkDistributionValidation);
@@ -54,7 +60,6 @@
 	* init
 	*/
 	_init();
-	loading.complete();
 
 	async function _init() {
 		// set Continent & Country select option
@@ -98,7 +103,7 @@
 			loading.complete();
 		});
 		if(document.body.scrollWidth<768)  // 判別網頁寬度 少於768會今入單欄模式
-		smoothScroll(document.body.scrollHeight/2.2,800);  // 用整體長度去做計算  滑動到需要填寫欄位位置
+		smoothScroll($systemArea.offset().top,800);  // 用整體長度去做計算  滑動到需要填寫欄位位置
 	}
 
 	const smoothScroll = (number = 0, time) => {
@@ -120,6 +125,12 @@
 		}, spacingTime);
 	};
 
+	// 學制選擇事件
+	function _handleSystemChoose(){
+		const choosenSystem = $systemChooseOption.val();
+
+	}
+
 	// 儲存
 	function _handleSave() {
 		// 海外僑生
@@ -127,6 +138,7 @@
 		_citizenshipList.forEach(object => {
 			tmpString += object.id+',';
 		});
+		const systemId = +$systemChooseOption.val();
 		const citizenshipString = tmpString.substr(0,tmpString.length-1);
 		const isDistribution = +$signUpForm.find('.isDistribution:checked').val();
 		const distributionTime = $signUpForm.find('.input-distributionTime').val();
@@ -136,22 +148,17 @@
 		const hasBeenTaiwanOption = +$signUpForm.find('.radio-whyHasBeenTaiwan:checked').val();
 		const ethnicChinese = +$signUpForm.find('.radio-ethnicChinese:checked').val();
 		const invalidDistributionOption = [4, 5, 6, 7];
+		if ([1, 2].indexOf(systemId) == -1) return swal({title:`學制類別選項錯誤`, confirmButtonText:'確定', type:'error'});
 		if (!!isDistribution && invalidDistributionOption.includes(distributionOption)) return swal({title:`分發來臺選項不具報名資格`, confirmButtonText:'確定', type:'error'});
 		if (!!isDistribution && distributionTime === '') return swal({title:`未填寫分發來臺年份或填寫格式不正確`, confirmButtonText:'確定', type:'error'});
 		if (stayLimitOption === 1) return swal({title:`海外居留年限選項不具報名資格`, confirmButtonText:'確定', type:'error'});
 		if (!!hasBeenTaiwan && hasBeenTaiwanOption === 9) return swal({title:`在臺停留選項不具報名資格`, confirmButtonText:'確定', type:'error'});
 		if (ethnicChinese === 0) return swal({title:`非華裔者不具報名資格`, confirmButtonText:'確定', type:'error'});
 		if (! citizenshipString.length>0) return swal({title:`請先選取你的國籍`, confirmButtonText:'確定', type:'error'});// 陣列長度 <= 0 代表沒有選取國籍
-		// console.log(`是否曾經分發來臺就學過？ ${!!isDistribution}`);
-		// console.log(`曾分發來臺於西元幾年分發來臺？ ${distributionTime}`);
-		// console.log(`曾分發來臺請就下列選項擇一勾選 ${distributionOption}`);
-		// console.log(`海外居留年限 ${stayLimitOption}`);
-		// console.log(`報名截止日往前推算僑居地居留期間內，是否曾在某一年來臺停留超過 120 天？ ${!!hasBeenTaiwan}`);
-		// console.log(`在臺停留日期請就下列選項，擇一勾選，並檢附證明文件： ${hasBeenTaiwanOption}`);
-		// console.log(`是否為華裔者： ${ethnicChinese}`);
 
 		loading.start();
 		student.verifyQualification({
+			system_id: systemId,
 			has_come_to_taiwan: !!isDistribution,
 			come_to_taiwan_at: distributionTime,
 			reason_of_come_to_taiwan: distributionOption,
@@ -351,25 +358,22 @@
 	*	private method
 	*/
 
-	function _setData(data) {
+	async function _setData(data) {
 
+		// 學制
+		$systemChooseOption.val(data.system_id).trigger('change');
 		// 海外僑生
-		// 曾分發來臺
-		!!data.has_come_to_taiwan &&
-		$signUpForm.find('.isDistribution[value=1]').prop('checked',true).trigger('change') &&
-		$signUpForm.find('.input-distributionTime').val(data.is_ethnic_Chinese).trigger('change') &&
-		$signUpForm.find(`.distributionMoreQuestion[value=${data.reason_of_come_to_taiwan}]`).prop('checked',true).trigger('change');
 
 		// 是否華裔學生
-		$signUpForm.find(`.radio-ethnicChinese[value=${data.overseas_residence_time}]`).prop('checked',true).trigger('change');
+		await $signUpForm.find(`.radio-ethnicChinese[value=${+data.is_ethnic_Chinese}]`).prop('checked',true).trigger('change');
 
 		// 海外居留年限
-		$signUpForm.find(`.radio-stayLimit[value=${data.overseas_residence_time}]`).prop('checked',true).trigger('change');
+		await $signUpForm.find(`.radio-stayLimit[value=${+data.overseas_residence_time}]`).prop('checked',true).trigger('change');
 
 		// 在臺停留日期
-		!!data.stay_over_120_days_in_taiwan &&
-		$signUpForm.find('.radio-hasBeenTaiwan[value=1]').prop('checked',true).trigger('change') &&
-		$signUpForm.find(`.radio-whyHasBeenTaiwan[value=${data.reason_selection_of_stay_over_120_days_in_taiwan}]`).prop('checked',true).trigger('change');
+		await $signUpForm.find(`.radio-hasBeenTaiwan[value=${+data.stay_over_120_days_in_taiwan}]`).prop('checked',true).trigger('change');
+		if(data.stay_over_120_days_in_taiwan)
+			await $signUpForm.find(`.radio-whyHasBeenTaiwan[value=${data.reason_selection_of_stay_over_120_days_in_taiwan}]`).prop('checked',true).trigger('change');
 
 		// 國籍
 		_initCitizenshipList(data.citizenship);
