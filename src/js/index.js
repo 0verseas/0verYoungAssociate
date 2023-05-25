@@ -78,8 +78,6 @@
 						location.href = './qualify.html';
 					} else if(!json.has_personal_info) {
 						location.href = './personalInfo.html';
-					} else if(!json.has_apply_way) {
-						location.href = './grade.html';
 					} else if(!json.has_admission) {
 						location.href = './admission.html';
 					} else if(json.confirmed_at === null){

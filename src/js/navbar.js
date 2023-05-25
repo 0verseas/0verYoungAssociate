@@ -25,7 +25,7 @@
 		_setEmailVerifyAlert(json);
 		_setProgress(json);
 		_setHeader(json);
-		// _checkConfirm(json);
+		_checkConfirm(json);
 	})
 	.catch(async (err) => {
 		console.error(err);
@@ -46,8 +46,8 @@
 	*	bind event
 	*/
 	$logoutBtn.on('click', _handleLogout);
-	// $mailResendBtn.on('click', _handleResendMail);
-	// $checkBtn.on('click', _checkAllSet);
+	$mailResendBtn.on('click', _handleResendMail);
+	$checkBtn.on('click', _checkAllSet);
 
 	//登出處理
 	function _handleLogout() {
@@ -122,30 +122,26 @@
 			$('.nav-personalInfo').attr("href", '');
 		}
 
-		if(data.has_personal_info ===false){
-			// 學生還沒有填寫個人基本資料時，出現提示訊息（請先填寫個人基本資料）
-			$('.nav-admission').addClass('disabled');
-			$('.nav-admission').addClass('show-personal-info-first');
-			$('.nav-admission').click(function(e){e.preventDefault();});
-			$('.nav-admission').attr("href", '');
-		}
-
 		// 分發志願
 		// !!data.has_admission && $('.nav-admission').addClass('list-group-item-success');
 
-		// if(data.is_opening ===false){
-		// 	// 學生沒有在開放期間時，出現提示訊息（非開放時間）
-		// 	$('.nav-admission').addClass('disabled');
-		// 	$('.nav-admission').addClass('show-admission-deadline');
-		// 	$('.nav-admission').click(function(e){e.preventDefault();});
-		// }else{
-		// 	if(data.has_personal_info ===false){
-		// 		// 學生有在開放期間時，但沒有填成績採計方式時，出現提示訊息（請先選擇成績採計方式）
-		// 		$('.nav-admission').addClass('disabled');
-		// 		$('.nav-admission').addClass('show-personalInfo-first');
-		// 		$('.nav-admission').click(function(e){e.preventDefault();});
-		// 	}
-		// }
+		if(data.is_opening === false){
+			// 學生沒有在開放期間時，出現提示訊息（非開放時間）
+			$('.nav-admission').addClass('disabled');
+			$('.nav-admission').addClass('show-tip-admission');
+			$('.admission-tip-text').text('(非開放時間)');
+			$('.nav-admission').click(function(e){e.preventDefault();});
+			$('.nav-admission').attr("href", '');
+		}else{
+			if(data.has_personal_info === false){
+				// 學生有在開放期間時，但沒有填成績採計方式時，出現提示訊息（請先選擇成績採計方式）
+				$('.nav-admission').addClass('disabled');
+				$('.nav-admission').addClass('show-tip-admission');
+				$('.admission-tip-text').text('(請先完成個人基本資料填寫)');
+				$('.nav-admission').click(function(e){e.preventDefault();});
+				$('.nav-admission').attr("href", '');
+			}
+		}
 
 		//志願檢視
 		// if(data.has_admission===false){
@@ -163,63 +159,75 @@
 	}
 
 	function _checkAllSet() {
-		var isAllSet = confirm("確認後就「無法再次更改資料」，您真的確認送出嗎？");
-		if (isAllSet === true) {
-			const data = {
-				"confirmed": true
-			};
-			student.dataConfirmation(data)
-			.then((res) => {
-				if (res.ok) {
-					return res.json();
-				} else {
-					throw res;
-				}
-			})
-			.then(() => {
-				swal({title: `成功確認資料。`, type:`success`, text: `如果需要再修改資料請利用「資料修正表」，或是重新申請一組新的帳號。`, confirmButtonText: '確定', allowOutsideClick: false})
-				.then(()=>{
-					location.href = "./download.html";
-				});
-				loading.complete();
-			})
-			.catch((err) => {
-				if (err.status && err.status === 401) {
-					swal({title: `請重新登入`, type:"warning", confirmButtonText: '確定', allowOutsideClick: false})
+		swal({
+			title: '確認後就「無法再次更改資料」，您真的確認送出嗎？',
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#5cb85c',
+			cancelButtonColor: '#dc3454',
+			confirmButtonText: '確定',
+			cancelButtonText: '取消',
+			reverseButtons: true
+		})
+		.then( (result)	=>{
+			//console.log(result);
+			if(result){
+				const data = {
+					"confirmed": true
+				};
+				student.dataConfirmation(data)
+				.then((res) => {
+					if (res.ok) {
+						return res.json();
+					} else {
+						throw res;
+					}
+				})
+				.then((json) => {
+					// console.log(json);
+					swal({title: `成功確認資料。`, text:"如果需要再修改資料請利用「資料修正表」，或是重新申請一組新的帳號。", type:"success", confirmButtonText: '確定', allowOutsideClick: false})
 					.then(()=>{
-						location.href = "./index.html";
+						location.href = "./downloadDocs.html";
 					});
-				} else {
-					err.json && err.json().then((data) => {
-						console.error(data);
-						swal({title: `ERROR`, text: data.messages[0], type:"error", confirmButtonText: '確定', allowOutsideClick: false});
-					})
-				}
-				loading.complete();
-			});
-		}
+					loading.complete();
+				})
+				.catch((err) => {
+					if (err.status && err.status === 401) {
+						swal({title: `請重新登入`, type:"warning", confirmButtonText: '確定', allowOutsideClick: false})
+						.then(()=>{
+							location.href = "./index.html";
+						});
+					} else {
+						err.json && err.json().then((data) => {
+							console.error(data);
+							swal({title: `ERROR`, text: data.messages[0], type:"error", confirmButtonText: '確定', allowOutsideClick: false});
+						})
+					}
+					loading.complete();
+				});
+			} else { //取消
+				return;
+			}
+		});
 	}
 
 	function  _checkConfirm(json) {
 		if (!!json.confirmed_at) {
-			$('#btn-all-set').removeClass('btn-danger').addClass('btn-success').prop('disabled', true).text('已確認並鎖定個人基本資料').show() && $afterConfirmZone.show();
+			$checkBtn.removeClass('btn-danger').addClass('btn-success').prop('disabled', true).text('已確認並鎖定個人基本資料').show() && $afterConfirmZone.show();
 		} else if (!json.has_qualify) {
 			// 沒有輸入資格驗證的狀況下，隱藏提交按鈕
-			$('#btn-all-set').hide();
+			$checkBtn.hide();
 		} else if ( !json.has_personal_info) {
 			// 個人基本資料未填寫者，隱藏提交按鈕
-			$('#btn-all-set').hide();
-		} else if (!json.has_apply_way) {
-			// 成績採計方式未填寫者，隱藏提交按鈕
-			$('#btn-all-set').hide();
+			$checkBtn.hide();
 		} else if (!json.has_admission) {
 			// 志願類組未選擇者，隱藏提交按鈕
-			$('#btn-all-set').hide();
-		}else if (!json.is_opening) {
+			$checkBtn.hide();
+		} else if (!json.is_opening) {
 			// 還沒有確認並鎖定個人基本資料，且不在報名期間內，不能點送出填報按鈕
-			$('#btn-all-set').prop('disabled', true).text('目前非報名時間').show();
+			$checkBtn.prop('disabled', true).text('目前非報名時間').show();
 		} else{
-			$('#btn-all-set').show();
+			$checkBtn.show();
 		}
 	}
 
