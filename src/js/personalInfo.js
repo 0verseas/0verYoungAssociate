@@ -862,10 +862,8 @@
                         if (str.match(taiwan_permitRegex) == null) { // 不符合上述的格式就回傳格式錯誤
                             str = '';
                         }
-                    } else if (LocateOrIdType == 105){ // 緬甸身份證含有/()
-                        str = str.replace(/[^0-9A-z\/()\u0020]/g, "");
-                    } else { // 其餘證件只允許字母數字和-號
-                        str = str.replace(/[^0-9A-z\u002d]/g, "");
+                    } else { // 其餘國家證件過濾敏感字元就好
+                        str = str.replace(/[\s]/g, "\u0020").replace(/[\<\>\"]/g, "");
                     }
                     break;
                 case 'Number':
@@ -959,7 +957,7 @@
             }
         }
         // 父母皆為「不詳」，須填寫監護人資料
-        if (_currentMomStatus === "undefined" && _currentMomStatus === "undefined") {
+        if (_currentDadStatus === "undefined" && _currentMomStatus === "undefined") {
             _checkValue($guardianName,'Chinese','監護人姓名（中）',true);
             _checkValue($guardianEngName,'English','監護人姓名（英）',true);
             _checkValue($guardianBirthday,'Date','監護人生日',true);
