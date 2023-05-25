@@ -3,28 +3,19 @@
 <head>
 	<script src="./env.js"></script>
 
-	<!-- Google Tag Manager  student.overseas-->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','websiteCrossDomain','GTM-NXCCHWB');
-		</script>
-	<!-- End Google Tag Manager -->
-
 	<meta charset="utf-8">
 	<title>海青副學士填報系統</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="overseas">
-	<meta name="author" content="overseas">
+	<meta name="description" content="O.C.A.C.">
+	<meta name="author" content="O.C.A.C.">
 	<!-- favicons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/favicon-16x16.png">
-	<link rel="android-chrome-icon" type="image/png" sizes="384x384" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/android-chrome-384x384.png",>
-	<link rel="android-chrome-icon" type="image/png" sizes="192x192" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/android-chrome-192x192.png",>
+	<!-- <link rel="apple-touch-icon" sizes="180x180" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/apple-touch-icon.png"> -->
+	<!-- <link rel="icon" type="image/png" sizes="32x32" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/favicon-32x32.png"> -->
+	<!-- <link rel="icon" type="image/png" sizes="16x16" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/favicon-16x16.png"> -->
+	<!-- <link rel="android-chrome-icon" type="image/png" sizes="384x384" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/android-chrome-384x384.png",> -->
+	<!-- <link rel="android-chrome-icon" type="image/png" sizes="192x192" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/android-chrome-192x192.png",> -->
 	<!-- <link rel="manifest" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/manifest.json"> -->
-	<link rel="mask-icon" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/safari-pinned-tab.svg" color="#5bbad5">
+	<!-- <link rel="mask-icon" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/safari-pinned-tab.svg" color="#5bbad5"> -->
 	<!-- <script src="../js/browser.js"></script> -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -54,14 +45,6 @@
 	</script>
 </head>
 <body>
-	<!-- Google Tag Manager (noscript) student.overseas-->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXCCHWB"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-	<!-- Google Tag Manager (noscript) website2student.overseas-->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KS7PPV5"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
 	<%
 	const _processPageList = [ // 填寫資料頁面列表
 	'qualify',
@@ -85,7 +68,7 @@
 					height="30"
 					class="d-inline-block align-top"
 					/>
-					<span class="hidden-sm-down">海外聯合招生委員會 -</span> 海青副學士申請資料填報系統
+					<span class="hidden-sm-down">僑務委員會 -</span> 海青副學士申請資料填報系統
 				</a>
 			</span>
 			<% if (_processPageList.indexOf(current.source) > -1 || current.source === 'uploadReviewItems') { %>
@@ -125,8 +108,7 @@
 						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　分發志願選填
 						<i class="fa fa-square-o yet pull-right"></i>
 						<i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
-						<div class="tip-personalInfo-first">&emsp;<small class="text-danger">(請先完成個人基本資料填寫)</small></div>
-						<div class="tip-admission-deadline">&emsp;<small class="text-danger">(非開放時間)</small></div>
+						<div class="tip-admission">&emsp;<small class="text-danger admission-tip-text">(非開放時間)</small></div>
 					</a>
 					<a href="result.html" class="nav-item list-group-item list-group-item-action nav-result <%= current.source === 'result' ? 'active' : ''%>">
 						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　志願檢視
@@ -187,10 +169,13 @@
 	<footer class="container">
 		<div class="row">
 			<div class="col-12 text-center">
-				<small>海外聯合招生委員會</small><br>
-				<small>University Entrance Committee For Overseas Chinese Students</small><br />
-				<small>地址：臺灣545南投縣埔里鎮大學路一號( 國立暨南國際大學 )</small><br />
-				<small>E-mail：<a href="mailto:overseas@ncnu.edu.tw">overseas@mail.ncnu.edu.tw</a> 電話：+886-49-2910900( 代表號 )   傳真：+886-49-2911182</small>
+				<small><a href="https://www.ocac.gov.tw/ocac/" target="_blank">僑務委員會</a></small><br>
+				<small><a href="https://www.ocac.gov.tw/OCAC/Eng/" target="_blank">Overseas Community Affairs Council</a></small><br />
+				<small>地址：<a href="https://www.ocac.gov.tw/OCAC/Pages/VDetail.aspx?nodeid=536&pid=1603" target="_blank">10055台北市徐州路五號三、十五、十六、十七樓<br />
+				3,15-17F., No.5, Xuzhou Rd., Zhongzheng Dist., Taipei City 10055, Taiwan (R.O.C.)</a></small><br>
+				<small>E-mail：<a href="https://www.ocac.gov.tw/OCAC/ServiceEmail/ServiceEmail.aspx?nodeid=314" target="_blank">僑務委員會服務信箱網址連結</a></small><br/>
+				<small>電話：+886-2-2327-2600  傳真：+886-2-2356-6354</small><br/>
+				<small>上班時間：臺灣時間週一至週五 08:30 ~ 17:30</small>
 			</div>
 		</div>
 	</footer>
