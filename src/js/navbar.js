@@ -123,32 +123,28 @@
 		}
 
 		// 分發志願
-		// !!data.has_admission && $('.nav-admission').addClass('list-group-item-success');
+		!!data.has_admission && $('.nav-admission').addClass('list-group-item-success');
 
 		if(data.is_opening === false){
 			// 學生沒有在開放期間時，出現提示訊息（非開放時間）
 			$('.nav-admission').addClass('disabled');
-			$('.nav-admission').addClass('show-tip-admission');
-			$('.admission-tip-text').text('(非開放時間)');
+			$('.nav-admission').addClass('show-deadline');
 			$('.nav-admission').click(function(e){e.preventDefault();});
 			$('.nav-admission').attr("href", '');
-		}else{
-			if(data.has_personal_info === false){
-				// 學生有在開放期間時，但沒有填成績採計方式時，出現提示訊息（請先選擇成績採計方式）
-				$('.nav-admission').addClass('disabled');
-				$('.nav-admission').addClass('show-tip-admission');
-				$('.admission-tip-text').text('(請先完成個人基本資料填寫)');
-				$('.nav-admission').click(function(e){e.preventDefault();});
-				$('.nav-admission').attr("href", '');
-			}
+		} else if(data.has_personal_info === false){
+			// 學生有在開放期間時，但沒有填成績採計方式時，出現提示訊息（請先選擇成績採計方式）
+			$('.nav-admission').addClass('disabled');
+			$('.nav-admission').addClass('show-personal-info-first');
+			$('.nav-admission').click(function(e){e.preventDefault();});
+			$('.nav-admission').attr("href", '');
 		}
 
 		//志願檢視
-		// if(data.has_admission===false){
-		// 	$('.nav-result').addClass('disabled');
-		// 	$('.nav-result').addClass('show-admission-first');
-		// 	$('.nav-result').click(function(e){e.preventDefault();});
-		// }
+		if(data.has_admission===false){
+			$('.nav-result').addClass('disabled');
+			$('.nav-result').addClass('show-admission-first');
+			$('.nav-result').click(function(e){e.preventDefault();});
+		}
 	}
 
 	function _setHeader(data) {

@@ -49,7 +49,6 @@
 	const _processPageList = [ // 填寫資料頁面列表
 	'qualify',
 	'personalInfo',
-	'grade',
 	'admission',
 	'result',
 	'download',
@@ -101,18 +100,18 @@
 					</a>
 					<a href="personalInfo.html" class="nav-item list-group-item list-group-item-action nav-personalInfo <%= current.source === 'personalInfo' ? 'active' : ''%>">
 						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　個人基本資料
-						<i class="fa fa-square-o yet pull-right"></i><i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+						<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
 						<div class="tip-qualify-first">&emsp;<small class="text-danger">(請先完成資格檢視)</small></div>
 					</a>
-					<a href="admission.html" class="nav-item list-group-item list-group-item-action nav-admission  <%= current.source === 'admission' ? 'active' : ''%>">
+					<a href="admission.html" class="nav-item list-group-item list-group-item-action nav-admission <%= current.source === 'admission' ? 'active' : ''%>">
 						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　分發志願選填
-						<i class="fa fa-square-o yet pull-right"></i>
-						<i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
-						<div class="tip-admission">&emsp;<small class="text-danger admission-tip-text">(非開放時間)</small></div>
+						<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+						<div class="tip-deadline">&emsp;<small class="text-danger">(非開放時間)</small></div>
+						<div class="tip-personal-info-first">&emsp;<small class="text-danger">(請先完成個人基本資料填寫)</small></div>
 					</a>
 					<a href="result.html" class="nav-item list-group-item list-group-item-action nav-result <%= current.source === 'result' ? 'active' : ''%>">
 						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　志願檢視
-						<i class="fa fa-square-o yet pull-right hide"></i><i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+						<i class="fa fa-square-o yet pull-right hide"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
 						<div class="tip-admission-first">&emsp;<small class="text-danger">(請先選擇分發志願)</small></div>
 					</a>
 				</div>
