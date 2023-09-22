@@ -1,0 +1,27 @@
+version: '3.7'
+
+networks:
+  bridge:
+    external: true
+    name: ${NETWORKS}
+
+services:
+  student:
+    image: nginx:alpine
+    container_name: 0verYoungAssociate
+    restart: unless-stopped
+    tty: true
+    environment:
+      - TZ=Asia/Taipei
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./app/dist/:/usr/share/nginx/html/
+    networks:
+      - bridge
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.youngassociate.entrypoints=websecure"
+      - "traefik.http.routers.youngassociate.tls.certresolver=lets-encr"
+      - "traefik.http.routers.youngassociate.rule=Host(`${DOMAIN_NAME}`)"
+      - "traefik.http.routers.youngassociate.tls.options=default"
+      - "traefik.http.routers.youngassociate.middlewares=secure-headers@file,traefik-compress@file"
