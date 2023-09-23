@@ -50,10 +50,6 @@
 			if (!response[0].ok) { throw response[0]; }
 			const resAdmission = await response[0].json();
 			const resOrder = await response[1].json();
-			$('#btn-group1Quota').attr('href', `https://student.overseas.ncnu.edu.tw/quota/?school=all&group=all&keyword=&first-group=true&second-group=false&third-group=false`);
-			$('#btn-group2Quota').attr('href', `https://student.overseas.ncnu.edu.tw/quota/?school=all&group=all&keyword=&first-group=false&second-group=true&third-group=false`);
-			$('#btn-group3Quota').attr('href', `https://student.overseas.ncnu.edu.tw/quota/?school=all&group=all&keyword=&first-group=false&second-group=false&third-group=true`);
-			$('#btn-groupSubjects').attr('href', `https://cmn-hant.overseas.ncnu.edu.tw/further-study-area/18-academic-and-subjects-in-taiwan/`);
 			resOrder.forEach((value, index) => { // 志願列表格式整理
 				let add = {
 					id: value.id, // 系所編號

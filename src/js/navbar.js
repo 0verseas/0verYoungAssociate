@@ -183,7 +183,7 @@
 					// console.log(json);
 					swal({title: `成功確認資料。`, text:"如果需要再修改資料請利用「資料修正表」，或是重新申請一組新的帳號。", type:"success", confirmButtonText: '確定', allowOutsideClick: false})
 					.then(()=>{
-						location.href = "./downloadDocs.html";
+						location.href = "./download.html";
 					});
 					loading.complete();
 				})
