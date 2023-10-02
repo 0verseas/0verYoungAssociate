@@ -928,7 +928,7 @@
         _checkValue($schoolNameSelect,'General','學校名稱',_hasSchoolLocate);
         _checkValue($schoolNameText,'General','學校名稱',!_hasSchoolLocate);
         _checkValue($schoolType,'else','學校類別',_hasEduType);
-        _checkValue($schoolLocation,'else','學校所在地',_hasEduType);
+        _checkValue($schoolLocation,'else','學校所在地',_hasSchoolLocate);
         _checkValue($schoolAdmissionAt,'General','入學時間',true);
         _checkValue($schoolGraduateAt,'General','畢業時間',true);
 
@@ -1004,7 +1004,7 @@
                 education_system_description: $educationSystemDescription.val(),
                 school_country: $schoolCountry.val(),
                 school_type: (_hasEduType)? $schoolType.val():'',
-                school_locate: (_hasEduType)? $schoolLocation.val():'',
+                school_locate: (_hasSchoolLocate)? $schoolLocation.val():'',
                 school_name: (_hasSchoolLocate)? $schoolNameSelect.val() : $schoolNameText.val(),
                 school_admission_at: $schoolAdmissionAt.val(),
                 school_graduate_at: $schoolGraduateAt.val(),
