@@ -195,20 +195,16 @@
 
 			html += `
 			<tr${medicalHTML}>
-			<td>
-			${item['cardCode']} ${groupHTML} ｜ ${item.school}<br>
-			${item.dept} ${item.engDept}
-			</td>
-			<td class="text-right">
-			<button type="button" data-sortNum="${item.sortNum}" class="btn btn-info btn-sm add-wish">
-			<i class="fa fa-plus" aria-hidden="true"></i>
-			</button>
-			<br/>
-			<br/>
-			<button type="button" data-sortNum="${item.sortNum}" class="btn btn-secondary btn-sm docs-info" data-toggle="tooltip" title="點擊查看系所招生資訊">
-			<i class="fa fa-list-ul" aria-hidden="true"></i>
-			</button>
-			</td>
+				<td>
+					${item['cardCode']} ${groupHTML} ｜ ${item.school}
+					<br>
+					${item.dept} ${item.engDept}
+				</td>
+				<td class="text-right">
+					<button type="button" data-sortNum="${item.sortNum}" class="btn btn-info btn-sm add-wish">
+						<i class="fa fa-plus" aria-hidden="true"></i>
+					</button>
+				</td>
 			</tr>
 			`;
 		});
@@ -235,8 +231,8 @@
 				$optionalWishList.html(html);
 				const $addWish = $optionalWishList.find('.add-wish');
 				$addWish.on("click", _addWish);
-				const $docsInfo = $optionalWishList.find('.docs-info');
-				$docsInfo.on("click",_showInfo);
+				// const $docsInfo = $optionalWishList.find('.docs-info');
+				// $docsInfo.on("click",_showInfo);
 			}
 		})
 
@@ -345,81 +341,81 @@
 	}
 
 	// 顯示系所審查項目
-	function _showInfo(){
-		const sortNum = $(this).data("sortnum");
-		const optionalIndex = _optionalWish.findIndex(order => order.sortNum === sortNum);
-		const title = _optionalWish[optionalIndex].school+_optionalWish[optionalIndex].dept;
-		const departmentID = _optionalWish[optionalIndex].id;
-		let quotaUrl = env.quotaUrl + '/young-associate-detail.html?id='+departmentID+'&school-id='+departmentID.substr(1,2)+'&tab=nav-shenchaItem';
-		let genderLimit = _optionalWish[optionalIndex].gender_limit;
-		let beforeBirthLimit = _optionalWish[optionalIndex].birth_limit_before;
-		let afterBirthLimit = _optionalWish[optionalIndex].birth_limit_after;
-		let birthLimit;
+	// function _showInfo(){
+	// 	const sortNum = $(this).data("sortnum");
+	// 	const optionalIndex = _optionalWish.findIndex(order => order.sortNum === sortNum);
+	// 	const title = _optionalWish[optionalIndex].school+_optionalWish[optionalIndex].dept;
+	// 	const departmentID = _optionalWish[optionalIndex].id;
+	// 	// let quotaUrl = env.quotaUrl + '/young-associate-detail.html?id='+departmentID+'&school-id='+departmentID.substr(1,2)+'&tab=nav-shenchaItem';
+	// 	let genderLimit = _optionalWish[optionalIndex].gender_limit;
+	// 	let beforeBirthLimit = _optionalWish[optionalIndex].birth_limit_before;
+	// 	let afterBirthLimit = _optionalWish[optionalIndex].birth_limit_after;
+	// 	let birthLimit;
 
-		switch(genderLimit){
-			case 'M':
-				genderLimit = '只收男性'
-				break;
-			case 'F':
-				genderLimit = '只收女性'
-				break;
-			default:
-				genderLimit = '無'
-		}
+	// 	switch(genderLimit){
+	// 		case 'M':
+	// 			genderLimit = '只收男性'
+	// 			break;
+	// 		case 'F':
+	// 			genderLimit = '只收女性'
+	// 			break;
+	// 		default:
+	// 			genderLimit = '無'
+	// 	}
 
-		if(beforeBirthLimit == null && afterBirthLimit == null){
-			birthLimit = '無'
-		} else if(beforeBirthLimit == null){
-			birthLimit = '需在  ' +  afterBirthLimit +'  之後出生';
-		} else if(afterBirthLimit == null){
-			birthLimit = '需在  ' +  beforeBirthLimit +'  之前出生';
-		} else{
-			birthLimit = '需在  ' + afterBirthLimit +'  ~  '+beforeBirthLimit +'  之間出生';
-		}
+	// 	if(beforeBirthLimit == null && afterBirthLimit == null){
+	// 		birthLimit = '無'
+	// 	} else if(beforeBirthLimit == null){
+	// 		birthLimit = '需在  ' +  afterBirthLimit +'  之後出生';
+	// 	} else if(afterBirthLimit == null){
+	// 		birthLimit = '需在  ' +  beforeBirthLimit +'  之前出生';
+	// 	} else{
+	// 		birthLimit = '需在  ' + afterBirthLimit +'  ~  '+beforeBirthLimit +'  之間出生';
+	// 	}
 
-		$('#modal-title').text(title+"—"+'招生資訊');
+	// 	$('#modal-title').text(title+"—"+'招生資訊');
 
-		linkToQuotaPageUrl = quotaUrl;
+	// 	// linkToQuotaPageUrl = quotaUrl;
 
-		let docsHtml = '';
+	// 	let docsHtml = '';
 
-		if (_optionalWish[optionalIndex].docs) {
-			docsHtml += '<h5>個人申請審查項目</h5>';
-			let docsList = _optionalWish[optionalIndex].docs;
-			docsList = docsList.sort(function(a,b){return b.required - a.required;});
-			docsList.forEach((value, index) => { // 審查項目整理
-				let requiredBadge = (value.required) ? '<span class="badge badge-danger">必繳</span>' : '<span class="badge badge-warning">選繳</span>';
-				docsHtml+=`
-					<div>
-						<tr class="table-warning">
-							<td>${index + 1}. </td>
-							<td>${requiredBadge}</td>
-							<td>${value.type.name}<br />${value.type.eng_name}</td>
-						</tr>
-					</div>
-					<br/>
-				`;
-			});
-		}
+	// 	if (_optionalWish[optionalIndex].docs) {
+	// 		docsHtml += '<h5>個人申請審查項目</h5>';
+	// 		let docsList = _optionalWish[optionalIndex].docs;
+	// 		docsList = docsList.sort(function(a,b){return b.required - a.required;});
+	// 		docsList.forEach((value, index) => { // 審查項目整理
+	// 			let requiredBadge = (value.required) ? '<span class="badge badge-danger">必繳</span>' : '<span class="badge badge-warning">選繳</span>';
+	// 			docsHtml+=`
+	// 				<div>
+	// 					<tr class="table-warning">
+	// 						<td>${index + 1}. </td>
+	// 						<td>${requiredBadge}</td>
+	// 						<td>${value.type.name}<br />${value.type.eng_name}</td>
+	// 					</tr>
+	// 				</div>
+	// 				<br/>
+	// 			`;
+	// 		});
+	// 	}
 
-		docsHtml+=`
-			<h5>系所年齡或性別要求</h5>
-			<div>
-				<tr class="table-warning">
-					<td>性別要求：${genderLimit}</td>
-				</tr>
-			</div>
-			<br/>
-			<div>
-				<tr class="table-warning">
-					<td>年齡要求：${birthLimit}</td>
-				</tr>
-			</div>
-		`;
+	// 	docsHtml+=`
+	// 		<h5>系所年齡或性別要求</h5>
+	// 		<div>
+	// 			<tr class="table-warning">
+	// 				<td>性別要求：${genderLimit}</td>
+	// 			</tr>
+	// 		</div>
+	// 		<br/>
+	// 		<div>
+	// 			<tr class="table-warning">
+	// 				<td>年齡要求：${birthLimit}</td>
+	// 			</tr>
+	// 		</div>
+	// 	`;
 
-		$('#modal-body').html(docsHtml);
-		$('#docs-modal').modal('show');
-	}
+	// 	$('#modal-body').html(docsHtml);
+	// 	$('#docs-modal').modal('show');
+	// }
 
 	// 連結至名額查詢系統 系所備審資料
 	function _linktoQuotaPagefunction() {
