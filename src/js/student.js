@@ -4,12 +4,15 @@ const student = (() => {
 
 	function setHeader(headerData) {
 		const $studentInfoHeader = $('#header-studentInfo');
+		const $headerSystem = $studentInfoHeader.find('#headerSystem');
 		const $headerId = $studentInfoHeader.find('#headerId');
 
 		headerData = headerData || {
+			system: "",
 			id: "重新整理"
 		}
 
+		$headerSystem.html(headerData.system);
 		$headerId.html(headerData.id);
 	}
 

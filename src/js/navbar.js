@@ -148,8 +148,12 @@
 	}
 
 	function _setHeader(data) {
-		//因為 報名層級 跟 身份別 都是固定的，所以只要處理報名序號
+		const systemMap = ['','二年制副學士班', '四年制產學合作學士班'];
+		const system_id = (data.system_id) ?data.system_id :0;
+		//因為 身份別 是固定的，所以要處理報名序號跟報名層級
+		data.system_id
 		student.setHeader({
+			system: systemMap[system_id],
 			id: (data.user_id).toString().padStart(6, "0")
 		});
 	}
