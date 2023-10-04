@@ -164,6 +164,7 @@
                 $birthContinent.html(stateHTML);
                 $residenceContinent.html(stateHTML);
                 $schoolContinent.html(stateHTML);
+                let Year = new Date().getFullYear();
                 // 總是有人亂填生日 甚至變成未來人 只好設個上限 最年輕就是報名當下剛滿十歲
                 $birthday.datepicker({
                     updateViewDate: true, // 會自動避免並修正直接輸入錯誤/無效的月/日，例：不是潤年的時候輸入2月29日，設true會自動跳下一天到3月1日
@@ -171,6 +172,7 @@
                     startView: 2, // 以個位數年份單位開始瀏覽
                     maxViewMode: 3, // 最高以10年單位瀏覽年份
                     immediateUpdates: true, // 只要選了其中一個項目，立即刷新欄位的年/月/日的數字
+                    defaultViewDate: {year: (Year-18)}, // 預設選項是 18歲
                     startDate: '-121y', // 當前年份-121y
                     endDate: '-9y' // 當前年份-9y
                 });
@@ -181,6 +183,7 @@
                     startView: 2,
                     maxViewMode: 3,
                     immediateUpdates: true,
+                    defaultViewDate: {year: (Year-40)},
                     startDate: '-121y',
                     endDate: '-21y'
                 });
@@ -190,6 +193,7 @@
                     startView: 2,
                     maxViewMode: 3,
                     immediateUpdates: true,
+                    defaultViewDate: {year: (Year-40)},
                     startDate: '-121y',
                     endDate: '-21y'
                 });
@@ -200,6 +204,7 @@
                     startView: 2,
                     maxViewMode: 3,
                     immediateUpdates: true,
+                    defaultViewDate: {year: (Year-40)},
                     startDate: '-121y',
                     endDate: '-9y'
                 });
@@ -210,6 +215,7 @@
                     minViewMode: 1,
                     maxViewMode: 3,
                     immediateUpdates: true,
+                    defaultViewDate: {year: (Year-5)},
                     startDate: '-121y',
                     endDate: '-0y'
                 });
@@ -220,8 +226,9 @@
                     minViewMode: 1,
                     maxViewMode: 3,
                     immediateUpdates: true,
+                    defaultViewDate: {year: (Year)},
                     startDate: '-121y',
-                    endDate: new Date(env.year+'/09/30'),
+                    endDate: '-0y',
                 });
             })
             .then(()=>{
