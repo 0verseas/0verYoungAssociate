@@ -20,11 +20,11 @@
     let _currentSchoolName = "";
     let _schoolList = [];
     let _schoolType = { // 有類別的地區
-        // "105": ["國際學校", "華校", "參與緬甸師資培育專案之華校", "緬校（僅緬十畢業）", "緬十畢業且在當地大學一年級修業完成", "緬十畢業且在當地大學二年級（含）以上修業完成"], // 緬甸
-        // "109": ["印尼當地中學", "海外臺灣學校"], // 印尼
-        // "128": ["馬來西亞華文獨立中學", "國民（型）中學、外文中學", "馬來西亞國際學校（International School）", "海外臺灣學校"], // 馬來西亞
-        // "133": ["海外臺灣學校", "越南當地中學"], // 越南
-        // "130": ["泰北未立案之華文中學", "泰國當地中學"] // 泰國
+        "105": ["國際學校", "華校", "參與緬甸師資培育專案之華校", "緬校（僅緬十畢業）", "緬十畢業且在當地大學一年級修業完成", "緬十畢業且在當地大學二年級（含）以上修業完成"], // 緬甸
+        "109": ["印尼當地中學", "海外臺灣學校"], // 印尼
+        "128": ["馬來西亞華文獨立中學", "國民（型）中學、外文中學", "馬來西亞國際學校（International School）", "海外臺灣學校"], // 馬來西亞
+        "133": ["海外臺灣學校", "越南當地中學"], // 越南
+        "130": ["泰北未立案之華文中學", "泰國當地中學"] // 泰國
     };
     const _disabilityCategoryList = ["視覺障礙", "聽覺障礙", "肢體障礙", "語言障礙", "腦性麻痺", "自閉症", "學習障礙"];
     let _errormsg = [];
@@ -620,68 +620,68 @@
         await $schoolLocationForm.hide();
         // 沒有選國家則不會出現學校名稱欄位
         if (!!_schoolCountryId) {
-            // const getSchoolListresponse = await student.getSchoolList(_schoolCountryId);
-            // const data = await getSchoolListresponse.json();
-            // if(getSchoolListresponse.ok){
+            const getSchoolListresponse = await student.getSchoolList(_schoolCountryId);
+            const data = await getSchoolListresponse.json();
+            if(getSchoolListresponse.ok){
                 // schoolWithType: 當前類別的學校列表
-                // let schoolWithType = [];
-                // if (_schoolCountryId in _schoolType) {
-                //     schoolWithType = await data.filter((obj) => {
-                //         return obj.type === _currentSchoolType;
-                //     })
-                // } else {
-                //     schoolWithType = await data.filter((obj) => {
-                //         return obj.type === null;
-                //     })
-                // }
-                // if (schoolWithType.length > 0) {
-                //     // 當前類別有學校列表的話，渲染所在地、學校名稱列表
-                //     let group_to_values = await schoolWithType.reduce(function(obj, item) {
-                //         obj[item.locate] = obj[item.locate] || [];
-                //         obj[item.locate].push({ name: item.name });
-                //         return obj;
-                //     }, {});
+                let schoolWithType = [];
+                if (_schoolCountryId in _schoolType) {
+                    schoolWithType = await data.filter((obj) => {
+                        return obj.type === _currentSchoolType;
+                    })
+                } else {
+                    schoolWithType = await data.filter((obj) => {
+                        return obj.type === null;
+                    })
+                }
+                if (schoolWithType.length > 0) {
+                    // 當前類別有學校列表的話，渲染所在地、學校名稱列表
+                    let group_to_values = await schoolWithType.reduce(function(obj, item) {
+                        obj[item.locate] = obj[item.locate] || [];
+                        obj[item.locate].push({ name: item.name });
+                        return obj;
+                    }, {});
 
-                //     // 海外臺校 檳城的好像廢校了
-                //     if(_currentSchoolType=='海外臺灣學校' && _currentSchoolLocate == '' && _schoolCountryId == 128){
-                //         _currentSchoolLocate = "雪蘭莪";
-                //     }
+                    // 海外臺校 檳城的好像廢校了
+                    if(_currentSchoolType=='海外臺灣學校' && _currentSchoolLocate == '' && _schoolCountryId == 128){
+                        _currentSchoolLocate = "雪蘭莪";
+                    }
 
-                //     // group by 學校所在地
-                //     let groups = await Object.keys(group_to_values).map(function(key) {
-                //         return { locate: key, school: group_to_values[key] };
-                //     });
-                //     let schoolLocationHTML = '';
-                //     _schoolList = groups;
-                //     // 渲染學校所在地、隱藏學校名稱輸入
-                //     await _schoolList.forEach((value, index) => {
-                //         schoolLocationHTML += `<option value="${value.locate}">${value.locate}</option>`;
-                //     });
-                //     await $schoolLocation.html(schoolLocationHTML);
-                //     if (_currentSchoolLocate !== "") {
-                //         await $schoolLocation.val(_currentSchoolLocate);
-                //     } else {
-                //         _currentSchoolLocate = _schoolList[0].locate;
-                //     }
-                //     await $schoolLocationForm.show();
-                //     await _reRenderSchoolList();
-                //     _hasSchoolLocate = true;
-                // } else {
+                    // group by 學校所在地
+                    let groups = await Object.keys(group_to_values).map(function(key) {
+                        return { locate: key, school: group_to_values[key] };
+                    });
+                    let schoolLocationHTML = '';
+                    _schoolList = groups;
+                    // 渲染學校所在地、隱藏學校名稱輸入
+                    await _schoolList.forEach((value, index) => {
+                        schoolLocationHTML += `<option value="${value.locate}">${value.locate}</option>`;
+                    });
+                    await $schoolLocation.html(schoolLocationHTML);
+                    if (_currentSchoolLocate !== "") {
+                        await $schoolLocation.val(_currentSchoolLocate);
+                    } else {
+                        _currentSchoolLocate = _schoolList[0].locate;
+                    }
+                    await $schoolLocationForm.show();
+                    await _reRenderSchoolList();
+                    _hasSchoolLocate = true;
+                } else {
                     // 沒有學校列表，則單純顯示學校名稱 text field
                     await $schoolNameTextForm.show();
                     await $schoolNameText.val(_currentSchoolName);
                     _hasSchoolLocate = false;
-                // }
-            // } else {
-            //     const message = data.messages[0];
-            //     await swal({
-            //         title: `ERROR！`,
-            //         html:`${message}`,
-            //         type:"error",
-            //         confirmButtonText: '確定',
-            //         allowOutsideClick: false
-            //     });
-            // }
+                }
+            } else {
+                const message = data.messages[0];
+                await swal({
+                    title: `ERROR！`,
+                    html:`${message}`,
+                    type:"error",
+                    confirmButtonText: '確定',
+                    allowOutsideClick: false
+                });
+            }
         }
     }
 
