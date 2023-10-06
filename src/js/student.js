@@ -265,7 +265,7 @@ const student = (() => {
 		return size >=maxSize;
 	}
 
-	function getStudentAdmissionPaperFiles() {
+	function getStudentUploadedAdmissionBrochureRequirmentFiles() {
 		return fetch(baseUrl + `/young-associate/admission-paper/files/get`, {
 			method: 'GET',
 			headers: {
@@ -275,7 +275,7 @@ const student = (() => {
 		})
 	}
 
-	function uploadStudentAdmissionPaperFiles(data, type) {
+	function uploadAdmissionBrochureRequirmentFiles(data, type) {
 		return fetch(baseUrl + `/young-associate/admission-paper/upload/${type}`, {
 			method: 'POST',
 			body: data,
@@ -283,7 +283,7 @@ const student = (() => {
 		})
 	}
 
-	function deleteStudentAdmissionPaperFiles(type, name) {
+	function deleteStudentUploadedAdmissionBrochureRequirmentFiles(type, name) {
 		return fetch(baseUrl + `/young-associate/admission-paper/${type}/${name}`, {
 			method: 'DELETE',
 			credentials: 'include'
@@ -314,9 +314,9 @@ const student = (() => {
 		getOrderResultList,
 		dataConfirmation,
 		sizeConversion,
-		getStudentAdmissionPaperFiles,
-		uploadStudentAdmissionPaperFiles,
-		deleteStudentAdmissionPaperFiles
+		getStudentUploadedAdmissionBrochureRequirmentFiles,
+		uploadAdmissionBrochureRequirmentFiles,
+		deleteStudentUploadedAdmissionBrochureRequirmentFiles
 	};
 
 })();

@@ -84,6 +84,12 @@
 						} else {
 							location.href = './personalInfo.html';
 						}
+					}  else if(!json.has_uploaded) {
+						if(json.is_opening){
+							location.href = './upload.html';
+						} else {
+							location.href = './personalInfo.html';
+						}
 					} else if(json.confirmed_at === null){
 						location.href = './result.html';
 					} else {

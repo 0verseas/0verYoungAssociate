@@ -41,7 +41,7 @@
 					location.href = './admission.html';
 				});
 			} else if(json.confirmed_at == null){
-				swal({title:`尚未確認並鎖定個人基本資料，資料確認不須更改後，請按下「確認並鎖定個人基本資料」按鈕。`, type: `error`, confirmButtonText: '確定', allowOutsideClick: false})
+				swal({title:`尚未確認並鎖定報名基本資料，資料確認不須更改後，請按下「確認並鎖定報名基本資料」按鈕。`, type: `error`, confirmButtonText: '確定', allowOutsideClick: false})
 				.then(()=> {
 					location.href = './result.html';
 				});

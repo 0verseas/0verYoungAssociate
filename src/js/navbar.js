@@ -5,8 +5,8 @@
 	*/
 	const $logoutBtn = $('#btn-logout'); //登出按鈕
 	const $mailResendBtn = $('#btn-mailResend'); //重寄驗證信按鈕
-	const $checkBtn = $('#btn-all-set'); //確認並鎖定個人基本資料按鈕
-	const $afterConfirmZone = $('#afterConfirmZone'); //確認並鎖定個人基本資料後區域
+	const $checkBtn = $('#btn-all-set'); //確認並鎖定報名基本資料按鈕
+	const $afterConfirmZone = $('#afterConfirmZone'); //確認並鎖定報名基本資料後區域
 
 	/**
 	* init
@@ -125,6 +125,9 @@
 		// 分發志願
 		!!data.has_admission && $('.nav-admission').addClass('list-group-item-success');
 
+		// 分發志願
+		!!data.has_uploaded && $('.nav-upload').addClass('list-group-item-success');
+
 		if(data.is_opening === false){
 			// 學生沒有在開放期間時，出現提示訊息（非開放時間）
 			$('.nav-admission').addClass('disabled');
@@ -132,11 +135,16 @@
 			$('.nav-admission').click(function(e){e.preventDefault();});
 			$('.nav-admission').attr("href", '');
 		} else if(data.has_personal_info === false){
-			// 學生有在開放期間時，但沒有填成績採計方式時，出現提示訊息（請先選擇成績採計方式）
+			// 學生有在開放期間時，但沒有填個人基本資訊時，出現提示訊息（請先填寫個人基本資訊）
 			$('.nav-admission').addClass('disabled');
 			$('.nav-admission').addClass('show-personal-info-first');
 			$('.nav-admission').click(function(e){e.preventDefault();});
 			$('.nav-admission').attr("href", '');
+
+			$('.nav-upload').addClass('disabled');
+			$('.nav-upload').addClass('show-personal-info-first');
+			$('.nav-upload').click(function(e){e.preventDefault();});
+			$('.nav-upload').attr("href", '');
 		}
 
 		//志願檢視
@@ -213,7 +221,7 @@
 
 	function  _checkConfirm(json) {
 		if (!!json.confirmed_at) {
-			$checkBtn.removeClass('btn-danger').addClass('btn-success').prop('disabled', true).text('已確認並鎖定個人基本資料').show() && $afterConfirmZone.show();
+			$checkBtn.removeClass('btn-danger').addClass('btn-success').prop('disabled', true).text('已確認並鎖定報名基本資料').show() && $afterConfirmZone.show();
 		} else if (!json.has_qualify) {
 			// 沒有輸入資格驗證的狀況下，隱藏提交按鈕
 			$checkBtn.hide();
@@ -224,7 +232,7 @@
 			// 志願類組未選擇者，隱藏提交按鈕
 			$checkBtn.hide();
 		} else if (!json.is_opening) {
-			// 還沒有確認並鎖定個人基本資料，且不在報名期間內，不能點送出填報按鈕
+			// 還沒有確認並鎖定報名基本資料，且不在報名期間內，不能點送出填報按鈕
 			$checkBtn.prop('disabled', true).text('目前非報名時間').show();
 		} else{
 			$checkBtn.show();
