@@ -7,6 +7,7 @@
 	const $imgModal = $('#img-modal'); // 檔案編輯模板
 	const $imgModalBody= $('#img-modal-body');// 檔案編輯模板顯示檔案區域
 	const $deleteFileBtn = $('.btn-delFile');// 檔案編輯模板刪除按鈕
+	const $confirmedDeadlineText = $('.confirmed-deadline-text'); // 開放報名日期，緬甸跟大家不一樣
 	let $uploadedFiles = [];// 已上傳檔案名稱陣列
 
 
@@ -39,6 +40,12 @@
 				$('.input-group').hide();
 				$deleteFileBtn.hide();
 				$saveButton.hide();
+			}
+
+			if(data.school_country_name === '緬甸'){
+				$confirmedDeadlineText.text(' 2023 年 11 月 29 日 ');
+			} else {
+				$confirmedDeadlineText.text(' 2024 年 02 月 28 日 ');
 			}
 		} else {
 			const data = await response.json();
