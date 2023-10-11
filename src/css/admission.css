@@ -38,3 +38,8 @@
 .ui-tooltip {
 	font: bold 14px Helvetica Neue, Nimbus Sans, Sans-Serif;
 }
+
+li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
