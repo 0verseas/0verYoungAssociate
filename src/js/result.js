@@ -21,6 +21,7 @@
 	_init();
 
     async function _init() {
+		$('.correction-form-link').attr("href",env.baseUrl+"/admission-data-correction-form/young-associate");
 		try {
 			const response = await student.getAdmissionSelectionOrder();
 			if (!response[0].ok) { throw response[0]; }
