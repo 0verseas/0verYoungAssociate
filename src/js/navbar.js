@@ -134,6 +134,11 @@
 			$('.nav-admission').addClass('show-deadline');
 			$('.nav-admission').click(function(e){e.preventDefault();});
 			$('.nav-admission').attr("href", '');
+
+			$('.nav-upload').addClass('disabled');
+			$('.nav-upload').addClass('show-deadline');
+			$('.nav-upload').click(function(e){e.preventDefault();});
+			$('.nav-upload').attr("href", '');
 		} else if(data.has_personal_info === false){
 			// 學生有在開放期間時，但沒有填個人基本資訊時，出現提示訊息（請先填寫個人基本資訊）
 			$('.nav-admission').addClass('disabled');
@@ -230,6 +235,9 @@
 			$checkBtn.hide();
 		} else if (!json.has_admission) {
 			// 志願類組未選擇者，隱藏提交按鈕
+			$checkBtn.hide();
+		} else if (!json.has_uploaded) {
+			// 未上傳簡章規定必繳文件者，隱藏提交按鈕
 			$checkBtn.hide();
 		} else if (!json.is_opening) {
 			// 還沒有確認並鎖定報名基本資料，且不在報名期間內，不能點送出填報按鈕
