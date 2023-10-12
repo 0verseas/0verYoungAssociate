@@ -16,7 +16,7 @@
 	*/
 
 	async function _init() {
-		// $('.correction-form-link').attr("href",env.baseUrl+"/admission-data-correction-form/young-associate");
+		$('.correction-form-link').attr("href",env.baseUrl+"/admission-data-correction-form/young-associate");
 		student.getStudentRegistrationProgress()
 		.then((res) => {
 			if (res.ok) {
