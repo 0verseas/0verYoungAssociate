@@ -6,9 +6,9 @@ networks:
     name: ${NETWORKS}
 
 services:
-  student:
+  youngassociate:
     image: nginx:alpine
-    container_name: 0verYoungAssociate
+    container_name: ${CONTAINER_NAME}
     restart: unless-stopped
     tty: true
     environment:
@@ -20,8 +20,9 @@ services:
       - bridge
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.youngassociate.entrypoints=websecure"
-      - "traefik.http.routers.youngassociate.tls.certresolver=lets-encr"
-      - "traefik.http.routers.youngassociate.rule=Host(`${DOMAIN_NAME}`)"
-      - "traefik.http.routers.youngassociate.tls.options=default"
-      - "traefik.http.routers.youngassociate.middlewares=secure-headers@file,traefik-compress@file"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.entrypoints=${ENTRYPOINTS}"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.tls.certresolver=lets-encr"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${DOMAIN_NAME}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.tls.options=default"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.middlewares=secure-headers@file,traefik-compress@file"
+        #      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.middlewares=ipwhitelist@file" # 禁止對外連接
