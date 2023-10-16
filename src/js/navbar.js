@@ -236,13 +236,13 @@
 		} else if (!json.has_admission) {
 			// 志願類組未選擇者，隱藏提交按鈕
 			$checkBtn.hide();
+		} else if (!json.is_opening) {
+			// 還沒有確認並鎖定報名基本資料，且不在報名期間內，不能點送出完成填報按鈕
+			$checkBtn.prop('disabled', true).text('目前非報名時間').show();
 		} else if (!json.has_uploaded) {
 			// 未上傳簡章規定必繳文件者，隱藏提交按鈕
-			$checkBtn.hide();
-		} else if (!json.is_opening) {
-			// 還沒有確認並鎖定報名基本資料，且不在報名期間內，不能點送出填報按鈕
-			$checkBtn.prop('disabled', true).text('目前非報名時間').show();
-		} else{
+			$checkBtn.prop('disabled', true).show();
+		} else {
 			$checkBtn.show();
 		}
 	}
