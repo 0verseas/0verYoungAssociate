@@ -9,7 +9,7 @@
     <p>
         致：報名「僑務委員會 - 海外青年技術訓練班」學生
         <br/><br/>
-        <strong>請於本頁面上傳招生簡章規定文件，且紙本報名表件仍須送交至僑務委員會指定之單位，始完成報名。</strong>
+        <strong class="text-danger">請於本頁面上傳招生簡章規定文件，且紙本報名表件仍須送交至僑務委員會指定之單位，始完成報名。</strong>
     </p>
     <br/>
     <span class="text-danger" style="font-weight: bold">請於<strong class="confirmed-deadline-text">OO月XX日</strong>前，完成以下步驟：</span>
@@ -37,6 +37,39 @@
 <hr>
 
 <div id="form-uploadArea">
+    <div class="card" id="upload-identification-area">
+        <div class="card-header bg-primary text-white">
+            僑居地居留證件 <span class="badge badge-danger">必繳</span>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                可接受副檔名為 <strong class="text-danger">pdf、jpg、png</strong> 的檔案，單一個檔案大小需 <strong class="text-danger">小於 4 Mbytes</strong> 。
+            </div>
+
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-12">
+                    <input type="file" class="filestyle file-upload" id="identification-upload"
+                    data-btnClass="btn-success"
+                    data-input="false"
+                    data-type="identification"
+                    data-text=" 選取檔案"
+                    data-Icon="<i class='fa fa-folder-open' aria-hidden='true'/>"
+                    multiple>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><span>已上傳檔案</span> <small class="text-muted">(點圖可放大或刪除)</small></h4>
+                    <div id="identification-uploaded-files">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<hr>
+
     <div class="card" id="upload-diploma-area">
         <div class="card-header bg-primary text-white">
             最高學歷證明 <span class="badge badge-danger">必繳</span>
