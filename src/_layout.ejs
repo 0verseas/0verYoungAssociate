@@ -1,174 +1,175 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<script src="./env.js"></script>
+	<head>
+		<script src="./env.js"></script>
 
-	<meta charset="utf-8">
-	<title>海外青年職業訓練班填報系統</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="O.C.A.C.">
-	<meta name="author" content="O.C.A.C.">
-	<!-- favicons -->
-	<!-- <link rel="apple-touch-icon" sizes="180x180" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/apple-touch-icon.png"> -->
-	<!-- <link rel="icon" type="image/png" sizes="32x32" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/favicon-32x32.png"> -->
-	<!-- <link rel="icon" type="image/png" sizes="16x16" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/favicon-16x16.png"> -->
-	<!-- <link rel="android-chrome-icon" type="image/png" sizes="384x384" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/android-chrome-384x384.png",> -->
-	<!-- <link rel="android-chrome-icon" type="image/png" sizes="192x192" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/android-chrome-192x192.png",> -->
-	<!-- <link rel="manifest" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/manifest.json"> -->
-	<!-- <link rel="mask-icon" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/safari-pinned-tab.svg" color="#5bbad5"> -->
-	<!-- <script src="../js/browser.js"></script> -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CarlosBonetti/jquery-loading/dist/jquery.loading.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"/>
-	<!-- Custom styles for this template -->
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/<%= current.source %>.css" rel="stylesheet">
-	<link rel="stylesheet" href="./css/loading.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js" integrity="sha256-WRc/eG3R84AverJv0zmqxAmdwQxstUpqkiE+avJ3WSo=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/gh/CarlosBonetti/jquery-loading/dist/jquery.loading.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
-	<script src="./js/student.js"></script>
-	<script>
-		if (env.isProduction === true) {
-			console.log = function() {}
-		}
-	</script>
-</head>
-<body>
-	<%
-	const _processPageList = [ // 填寫資料頁面列表
-	'qualify',
-	'personalInfo',
-	'admission',
-	'upload',
-	'result',
-	'download'
-	];
-	%>
+		<meta charset="utf-8">
+		<title>海外青年職業訓練班填報系統</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="O.C.A.C.">
+		<meta name="author" content="O.C.A.C.">
+		<!-- favicons -->
+		<!-- <link rel="apple-touch-icon" sizes="180x180" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/apple-touch-icon.png"> -->
+		<!-- <link rel="icon" type="image/png" sizes="32x32" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/favicon-32x32.png"> -->
+		<!-- <link rel="icon" type="image/png" sizes="16x16" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/favicon-16x16.png"> -->
+		<!-- <link rel="android-chrome-icon" type="image/png" sizes="384x384" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/android-chrome-384x384.png",> -->
+		<!-- <link rel="android-chrome-icon" type="image/png" sizes="192x192" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/android-chrome-192x192.png",> -->
+		<!-- <link rel="manifest" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/manifest.json"> -->
+		<!-- <link rel="mask-icon" href="https://api.overseas.ncnu.edu.tw/0verseas-favicons/safari-pinned-tab.svg" color="#5bbad5"> -->
+		<!-- <script src="../js/browser.js"></script> -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CarlosBonetti/jquery-loading/dist/jquery.loading.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"/>
+		<!-- Custom styles for this template -->
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/<%= current.source %>.css" rel="stylesheet">
+		<link rel="stylesheet" href="./css/loading.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js" integrity="sha256-WRc/eG3R84AverJv0zmqxAmdwQxstUpqkiE+avJ3WSo=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/gh/CarlosBonetti/jquery-loading/dist/jquery.loading.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
+		<script src="./js/student.js"></script>
+		<script>
+			if (env.isProduction === true) {
+				console.log = function() {}
+			}
+		</script>
+	</head>
+	<body>
+		<%
+		const _processPageList = [ // 填寫資料頁面列表
+		'qualify',
+		'personalInfo',
+		'admission',
+		'upload',
+		'result',
+		'download'
+		];
+		%>
 
-	<%- include ('components/_loading') %>
+		<%- include ('components/_loading') %>
 
-	<div id="app" class="container">
-		<nav class="navbar header navbar-expand-lg navbar-light">
-			<span class="navbar-brand" style="height: 35px">
-				<a id="logo" href="./">
-					<img
-					src="./img/logo.png"
-					height="30"
-					class="d-inline-block align-top"
-					/>
-					<span class="hidden-sm-down">僑務委員會 -</span> 海外青年技術訓練班填報系統
-				</a>
-			</span>
-			<% if (_processPageList.indexOf(current.source) > -1 || current.source === 'uploadReviewItems') { %>
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mr-auto"></ul>
-					<div class="form-inline my-2 my-lg-0">
-						<small class="greet mr-2"></small>
-						<button class="btn btn-danger" id="btn-logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 登出</button>
+		<div id="app" class="container">
+			<nav class="navbar header navbar-expand-lg navbar-light">
+				<span class="navbar-brand" style="height: 35px">
+					<a id="logo" href="./">
+						<img
+						src="./img/logo.png"
+						height="30"
+						class="d-inline-block align-top"
+						/>
+						<span class="hidden-sm-down">僑務委員會 -</span> 海外青年技術訓練班填報系統
+					</a>
+				</span>
+				<% if (_processPageList.indexOf(current.source) > -1 || current.source === 'uploadReviewItems') { %>
+					<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto"></ul>
+						<div class="form-inline my-2 my-lg-0">
+							<small class="greet mr-2"></small>
+							<button class="btn btn-danger" id="btn-logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 登出</button>
+						</div>
 					</div>
-				</div>
-			<% } %>
-		</nav>
-		<div class="alert alert-danger mt-2 alert-emailVerify hide" role="alert">
-			<strong>注意！</strong> 您的信箱尚未驗證，請儘速前往填寫信箱開啟驗證信。若您未收到驗證信，請按 <a id="btn-mailResend" href="javascript:;">這裡</a> 重送驗證信。
-		</div>
+				<% } %>
+			</nav>
+			<div class="alert alert-danger mt-2 alert-emailVerify hide" role="alert">
+				<strong>注意！</strong> 您的信箱尚未驗證，請儘速前往填寫信箱開啟驗證信。若您未收到驗證信，請按 <a id="btn-mailResend" href="javascript:;">這裡</a> 重送驗證信。
+			</div>
 
-		<hr>
+			<hr>
 
-		<% if (_processPageList.indexOf(current.source) > -1) { %>
-		<div class="row">
-			<div class="col-lg-3">
-				<div class="list-group">
-					<a href="qualify.html" class="nav-item list-group-item list-group-item-action nav-qualify <%= current.source === 'qualify' ? 'active' : ''%>">
-						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　資格檢視
-						<i class="fa fa-square-o yet pull-right"></i>
-						<i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
-					</a>
-					<a href="personalInfo.html" class="nav-item list-group-item list-group-item-action nav-personalInfo <%= current.source === 'personalInfo' ? 'active' : ''%>">
-						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　個人基本資料
-						<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
-						<div class="tip-qualify-first">&emsp;<small class="text-danger">(請先完成資格檢視)</small></div>
-					</a>
-					<a href="admission.html" class="nav-item list-group-item list-group-item-action nav-admission <%= current.source === 'admission' ? 'active' : ''%>">
-						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　分發志願選填
-						<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
-						<div class="tip-deadline">&emsp;<small class="text-danger">(非開放時間)</small></div>
-						<div class="tip-personal-info-first">&emsp;<small class="text-danger">(請先完成個人基本資料填寫)</small></div>
-					</a>
-					<a href="upload.html" class="nav-item list-group-item list-group-item-action nav-upload <%= current.source === 'upload' ? 'active' : ''%>">
-						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　上傳簡章規定文件
-						<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
-						<div class="tip-deadline">&emsp;<small class="text-danger">(非開放時間)</small></div>
-						<div class="tip-personal-info-first">&emsp;<small class="text-danger">(請先完成個人基本資料填寫)</small></div>
-					</a>
-					<a href="result.html" class="nav-item list-group-item list-group-item-action nav-result <%= current.source === 'result' ? 'active' : ''%>">
-						<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　志願檢視
-						<i class="fa fa-square-o yet pull-right hide"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
-						<div class="tip-admission-first">&emsp;<small class="text-danger">(請先選擇分發志願)</small></div>
-					</a>
-				</div>
-				<hr>
-				<button type="button" id="btn-all-set" class="btn btn-danger btn-block hide">確認並鎖定報名基本資料</button>
-				<div id="afterConfirmZone" style="display: none;">
-					<hr>
+			<% if (_processPageList.indexOf(current.source) > -1) { %>
+			<div class="row">
+				<div class="col-lg-3">
 					<div class="list-group">
-						<a href="download.html" class="nav-item list-group-item list-group-item-action nav-download <%= current.source === 'download' ? 'active' : ''%>">
-							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　下載報名表件
+						<a href="qualify.html" class="nav-item list-group-item list-group-item-action nav-qualify <%= current.source === 'qualify' ? 'active' : ''%>">
+							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　資格檢視
+							<i class="fa fa-square-o yet pull-right"></i>
+							<i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+						</a>
+						<a href="personalInfo.html" class="nav-item list-group-item list-group-item-action nav-personalInfo <%= current.source === 'personalInfo' ? 'active' : ''%>">
+							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　個人基本資料
+							<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+							<div class="tip-qualify-first">&emsp;<small class="text-danger">(請先完成資格檢視)</small></div>
+						</a>
+						<a href="admission.html" class="nav-item list-group-item list-group-item-action nav-admission <%= current.source === 'admission' ? 'active' : ''%>">
+							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　分發志願選填
+							<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+							<div class="tip-deadline">&emsp;<small class="text-danger">(非開放時間)</small></div>
+							<div class="tip-personal-info-first">&emsp;<small class="text-danger">(請先完成個人基本資料填寫)</small></div>
+						</a>
+						<a href="upload.html" class="nav-item list-group-item list-group-item-action nav-upload <%= current.source === 'upload' ? 'active' : ''%>">
+							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　上傳簡章規定文件
+							<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+							<div class="tip-deadline">&emsp;<small class="text-danger">(非開放時間)</small></div>
+							<div class="tip-personal-info-first">&emsp;<small class="text-danger">(請先完成個人基本資料填寫)</small></div>
+						</a>
+						<a href="result.html" class="nav-item list-group-item list-group-item-action nav-result <%= current.source === 'result' ? 'active' : ''%>">
+							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　志願檢視
+							<i class="fa fa-square-o yet pull-right hide"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+							<div class="tip-admission-first">&emsp;<small class="text-danger">(請先選擇分發志願)</small></div>
 						</a>
 					</div>
+					<hr>
+					<button type="button" id="btn-all-set" class="btn btn-danger btn-block hide">確認並鎖定報名基本資料</button>
+					<div id="afterConfirmZone" style="display: none;">
+						<hr>
+						<div class="list-group">
+							<a href="download.html" class="nav-item list-group-item list-group-item-action nav-download <%= current.source === 'download' ? 'active' : ''%>">
+								<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　下載報名表件
+							</a>
+						</div>
+					</div>
+					<hr>
 				</div>
-				<hr>
+				<div class="col-lg-9">
+					<%- yield %>
+				</div>
 			</div>
-			<div class="col-lg-9">
-				<%- yield %>
-			</div>
+			<script src="./js/navbar.js"></script>
+			<% } else { %>
+			<%- yield %>
+			<% } %>
 		</div>
-		<script src="./js/navbar.js"></script>
-		<% } else { %>
-		<%- yield %>
-		<% } %>
-	</div>
-	<a href="javascript:" id="arrow-top"><i class="fa fa-chevron-up"></i></a>
-	<script>
-		var loading = {
-			start: function () {
-				$('#loading-wrapper').show();
-			},
-			complete: function () {
-				$('#loading-wrapper').hide();
-			}
-		};
-		loading.start();
-		// ===== Scroll to Top ====
-		$(window).scroll(function() {
-			if ($(this).scrollTop() >= 50) {
-				$('#arrow-top').fadeIn("fast");
-			} else {
-				$('#arrow-top').fadeOut("fast");
-			}
-		});
-		$('#arrow-top').click(function() {
-			$('body,html').animate({
-				scrollTop : 0
-			}, 500);
-		});
-	</script>
-	<script src="js/<%= current.source %>.js"></script>
-	<div class="footer container">
+		<a href="javascript:" id="arrow-top"><i class="fa fa-chevron-up"></i></a>
+		<script>
+			var loading = {
+				start: function () {
+					$('#loading-wrapper').show();
+				},
+				complete: function () {
+					$('#loading-wrapper').hide();
+				}
+			};
+			loading.start();
+			// ===== Scroll to Top ====
+			$(window).scroll(function() {
+				if ($(this).scrollTop() >= 50) {
+					$('#arrow-top').fadeIn("fast");
+				} else {
+					$('#arrow-top').fadeOut("fast");
+				}
+			});
+			$('#arrow-top').click(function() {
+				$('body,html').animate({
+					scrollTop : 0
+				}, 500);
+			});
+		</script>
+		<script src="js/<%= current.source %>.js"></script>
+	</body>
+	<footer class="footer container" style="z-index: 0;">
 		<div class="row">
 			<div class="col-12 text-center">
 				<small><a href="https://www.ocac.gov.tw/ocac/" target="_blank">中華民國僑務委員會</a></small><br>
@@ -180,6 +181,5 @@
 				<small>上班時間：臺灣時間週一至週五 08:30 ~ 17:30</small>
 			</div>
 		</div>
-	</div>
-</body>
+	</footer>
 </html>
