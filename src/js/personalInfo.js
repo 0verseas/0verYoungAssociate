@@ -126,6 +126,7 @@
     const $twContactAddress = $('#twContactAddress'); // 地址
     const $twContactWorkplaceName = $('#twContactWorkplaceName'); // 服務機關名稱
     const $twContactWorkplacePhone = $('#twContactWorkplacePhone'); // 服務機關電話
+    const $twContactWorkplaceAddress = $('#twContactWorkplaceAddress'); // 服務機關地址
     const $saveBtn = $('#btn-save');
 
     /**
@@ -997,6 +998,7 @@
         _checkValue($twContactAddress,'General');
         _checkValue($twContactWorkplaceName,'General');
         _checkValue($twContactWorkplacePhone,'Number');
+        _checkValue($twContactWorkplaceAddress,'General');
         if(_errormsg.length > 0) {
             return false;
         } else {
@@ -1051,6 +1053,7 @@
                 tw_contact_address: ($twContactAddress === null)? "" : $twContactAddress.val(),
                 tw_contact_workplace_name: ($twContactWorkplaceName === null)? "" : $twContactWorkplaceName.val(),
                 tw_contact_workplace_phone: ($twContactWorkplacePhone === null)? "" : $twContactWorkplacePhone.val(),
+                tw_contact_workplace_address: ($twContactWorkplaceAddress === null)? "" : $twContactWorkplaceAddress.val(),
             };
         }
     }
