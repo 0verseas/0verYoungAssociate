@@ -394,6 +394,7 @@
                 $twContactAddress.val(formData.tw_contact_address);
                 $twContactWorkplaceName.val(formData.tw_contact_workplace_name);
                 $twContactWorkplacePhone.val(formData.tw_contact_workplace_phone);
+                $twContactWorkplaceAddress.val(formData.tw_contact_workplace_address);
             })
             .then(() => {
                 // init selectpicker 如果有值 要渲染要出來 一定要用 refresh 參數
