@@ -33,8 +33,8 @@
 	async function _init() {
 		try {
             $downloadLinks.append(
-                '<a href="http://get.adobe.com/tw/reader/" target="_blank" class="list-group-item list-group-item-action">觀看中文PDF軟體</a>\n' +
-                '<a href="http://www.7-zip.org/" target="_blank" class="list-group-item list-group-item-action">解壓縮軟體</a>\n' +
+                '<a href="https://get.adobe.com/tw/reader/" target="_blank" class="list-group-item list-group-item-action">觀看中文PDF軟體</a>\n' +
+                '<a href="https://www.7-zip.org/" target="_blank" class="list-group-item list-group-item-action">解壓縮軟體</a>\n' +
                 '<a href="' + env.baseUrl + '/admission-data-correction-form/young-associate" target="_blank" class="list-group-item list-group-item-action">報名資料修正表</a>'
 			);
 			const response = await student.getAdmissionCount();
