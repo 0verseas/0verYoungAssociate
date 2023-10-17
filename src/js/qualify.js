@@ -135,11 +135,15 @@
 	function _handleSave() {
 		// 海外僑生
 		let tmpString = '';
-		_citizenshipList.forEach(object => {
-			tmpString += object.id+',';
+		_citizenshipList.forEach((object, index) => {
+			if((index+1) === _citizenshipList.length){
+				tmpString += object.id;
+			} else {
+				tmpString += object.id+',';
+			}
 		});
 		const systemId = +$systemChooseOption.val();
-		const citizenshipString = tmpString.substr(0,tmpString.length-1);
+		const citizenshipString = tmpString;
 		const isDistribution = +$signUpForm.find('.isDistribution:checked').val();
 		const distributionTime = $signUpForm.find('.input-distributionTime').val();
 		const distributionOption = +$signUpForm.find('.distributionMoreQuestion:checked').val();
@@ -150,7 +154,8 @@
 		const invalidDistributionOption = [4, 5, 6, 7];
 		if ([1, 2].indexOf(systemId) == -1) return swal({title:`學制類別選項錯誤`, confirmButtonText:'確定', type:'error'});
 		if (!!isDistribution && invalidDistributionOption.includes(distributionOption)) return swal({title:`分發來臺選項不具報名資格`, confirmButtonText:'確定', type:'error'});
-		if (!!isDistribution && distributionTime === '') return swal({title:`未填寫分發來臺年份或填寫格式不正確`, confirmButtonText:'確定', type:'error'});
+		if (!!isDistribution && distributionTime === '') return swal({title:`未填寫分發或錄取來臺年份`, confirmButtonText:'確定', type:'error'});
+		if (!!isDistribution && !/^(\d{4},?)*$/.test(distributionTime)) return swal({title:`分發或錄取來臺年份填寫格式不正確`, confirmButtonText:'確定', type:'error'});
 		if (stayLimitOption === 1) return swal({title:`海外居留年限選項不具報名資格`, confirmButtonText:'確定', type:'error'});
 		if (!!hasBeenTaiwan && hasBeenTaiwanOption === 9) return swal({title:`在臺停留選項不具報名資格`, confirmButtonText:'確定', type:'error'});
 		if (ethnicChinese === 0) return swal({title:`非華裔者不具報名資格`, confirmButtonText:'確定', type:'error'});
@@ -363,6 +368,12 @@
 		// 學制
 		$systemChooseOption.val(data.system_id).trigger('change');
 		// 海外僑生
+		// 曾分發來臺
+		await $signUpForm.find(`.isDistribution[value=${+data.has_come_to_taiwan}]`).prop('checked',true).trigger('change');
+		if(+data.has_come_to_taiwan){
+			await $signUpForm.find(`.input-distributionTime`).val(data.come_to_taiwan_at);
+			await $signUpForm.find(`.distributionMoreQuestion[value=${+data.reason_of_come_to_taiwan}]`).prop('checked',true).trigger('change');
+		}
 
 		// 是否華裔學生
 		await $signUpForm.find(`.radio-ethnicChinese[value=${+data.is_ethnic_Chinese}]`).prop('checked',true).trigger('change');
