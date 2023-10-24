@@ -110,7 +110,10 @@
 		for (let file of fileList ) {
 			//有不可接受的副檔名存在
 			let res = checkFile(file);
-			if (!res) return;
+			if (!res) {
+				await $(this).val('');
+				return;
+			}
 			res = student.sizeConversion(file.size,4);
 			if (res) {
 				await swal({
@@ -120,11 +123,12 @@
 					confirmButtonText: '確定',
 					allowOutsideClick: false
 				});
+				await $(this).val('');
 				return;
 			}
 			sendData.append('files[]', file);
 		}
-
+		await $(this).val('');
 		await loading.start();
 		// 將檔案傳送到後端
 		const response = await student.uploadAdmissionBrochureRequirmentFiles(sendData, type);
