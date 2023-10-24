@@ -98,6 +98,7 @@
 				<div class="col-md-12">
 					<fieldset class="form-group">
 						<label class="text-danger">* 是否為「身心障礙」或「特殊照護」或「特殊教育」者</label><br>
+						<label class="text-danger"><small>Are you classified as a person with “mental/physical disabilities” or “special needs, “or “in need of special education”?</small></label><br/>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
 								<input class="form-check-input special" type="radio" name="special" value="0" checked> 否
@@ -156,6 +157,7 @@
 				<div class="col-md-12">
 					<div class="form-group">
 						<label for="proposeGroup">協助推薦來臺就學之僑華校/教學組織（無則免填）</label>
+						<label for="proposeGroup"><small>Overseas Chinese school/teaching organization which assists in the recommendation for studying in Taiwan (leave blank if none)</small></label>
 						<input type="email" class="form-control" id="proposeGroup" maxlength="100">
 					</div>
 				</div>
@@ -168,6 +170,8 @@
 	<dl class="row">
 		<dt class="col-md-3">
 			僑居地資料
+			<br/>
+			<small>Country of residence</small>
 		</dt>
 		<dd class="col-md-9">
 			<div class="row">
@@ -259,12 +263,15 @@
 	<dl class="row">
 		<dt class="col-md-3">
 			在臺資料<span class="text-danger">（無者免填）</span>
+			<br/>
+			<small>Information in Taiwan</small>
 		</dt>
 		<dd class="col-md-9">
 			<div class="row">
 				<div class="col-6 col-md-6">
 					<div class="form-group">
 						<label for="taiwanIdType">證件類型</label>
+						<label for="taiwanIdType">Document type</label>
 						<select class="form-control" id="taiwanIdType">
 							<option value="">請選擇</option>
 							<option value="身分證">身分證</option>
@@ -314,12 +321,15 @@
 	<dl class="row">
 		<dt class="col-md-3">
 			最高學歷
+			<br/>
+			<small>Highest level of education attained</small>
 		</dt>
 		<dd class="col-md-9">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
 						<label class="text-danger" for="educationSystemDescription">* 學制描述</label>
+						<label class="text-danger"><small>Academic system description</small></label>
 						<input type="text" class="form-control" id="educationSystemDescription" placeholder="xx小學6年、xx中學3年、xx高中3年">
 					</div>
 				</div>
@@ -391,12 +401,14 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label class="text-danger" for="schoolAdmissionAt">* 入學時間</label>
+						<label class="text-danger"><small>Date of admission</small></label>
 						<input class="form-control input-datepicker" data-provide="datepicker" data-date-format="yyyy/mm" data-date-min-view-mode="months" id="schoolAdmissionAt">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
 						<label class="text-danger" for="schoolGraduateAt">* 畢業時間</label>
+						<label class="text-danger"><small>Date of graduation</small></label>
 						<input class="form-control input-datepicker" data-provide="datepicker" data-date-format="yyyy/mm" data-date-min-view-mode="months" id="schoolGraduateAt">
 					</div>
 				</div>
@@ -632,6 +644,8 @@
 	<dl class="row">
 		<dt class="col-md-3">
 			在臺聯絡人<span class="text-danger">（無者免填）</span>
+			<br/>
+			<small>Contact person in Taiwan</small>
 		</dt>
 		<dd class="col-md-9">
 			<div class="row">

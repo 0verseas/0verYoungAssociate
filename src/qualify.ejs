@@ -1,6 +1,6 @@
 <div id="form-signUp">
 	<dl class="row system-area">
-		<dt class="col-md-3">選擇申請類別</dt>
+		<dt class="col-md-3">選擇申請類別<br/>Please select Application Category</dt>
 		<dd class="col-md-9">
 			<div class="row">
 				<div class="col-12">
@@ -27,6 +27,8 @@
 	<dl class="row">
 		<dt class="col-md-3">
 			身分別
+			<br/>
+			Applicant Status
 		</dt>
 		<dd class="col-md-9">
 			<div class="row">
@@ -34,6 +36,7 @@
 					<div class="alert alert-info" role="alert">
 						<strong>身分別說明：</strong><br>
 						<span class="text-danger">海外僑生：</span>最近連續居留海外（不含大陸、港澳及臺灣）6年以上，並取得僑居地永久或長期居留證件之華裔學生。<br />
+						<span class="text-danger">Overseas Chinese students：</span>Chinese students who have stayed overseas for over six consecutive years (other than China, Hong Kong, Macau and Taiwan) and have obtained a permanent or long-term residence certificate in their country of residence.<br />
 					</div>
 				</div>
 			</div>
@@ -57,6 +60,7 @@
 			<div class="col-md-12">
 				<fieldset class="form-group">
 					<label><strong>請問您是否為華裔學生？</strong></label><br>
+					<label><strong>Are you an overseas Chinese student?</strong></label><br>
 					<div class="form-check form-check-inline">
 						<label class="form-check-label">
 							<input class="form-check-input radio-ethnicChinese" type="radio" name="ethnicChinese" value="1"> 是
@@ -81,6 +85,7 @@
 		<div class="col-md-12">
 			<fieldset class="form-group">
 				<label><strong>請問您擁有哪些國家之國籍（護照）？ </strong><small>※可複選</small></label><br>
+				<label><strong>What is your nationality (what passport do you hold) ? </strong><small>※Multiple choices available</small></label><br>
 			</fieldset>
 		</div>
 		<div class="col-6">
@@ -120,6 +125,7 @@
 					<div class="col-md-12">
 						<fieldset class="form-group">
 							<div>是否曾經海外聯招會分發或經臺灣各大學校院單獨招生管道錄取來臺？</div>
+							<div>Did you come to Taiwan through University Entrance Committee For Overseas Chinese Students (UECFOCS) or separate admission channels of universities and colleges in Taiwan?</div>
 							<div class="form-check form-check-inline">
 								<label class="form-check-label">
 									<input class="form-check-input isDistribution" name="isDistribution" type="radio" value="1"> 是
@@ -137,43 +143,58 @@
 					<div class="col-12">
 						<fieldset class="form-group">
 							<label>於西元幾年分發或錄取？</label>
+							<label>In what year were you admitted?</label>
 							<input class="form-control input-distributionTime" type="text" id = "distributionTime" placeholder="請填寫西元年份，若多個請用「，」隔開。EX：2013 " step="1">
 						</fieldset>
 						<fieldset class="form-group">
 							<label>請就下列選項擇一勾選</label><br>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="1"> 1. 未曾辦理報到入學，亦未辦理保留入學資格。
+									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="1">
+										1. 未曾辦理報到入學，亦未辦理保留入學資格。
+										<br/><small>I have not registered for admission, nor have I applied for retaining my admission qualifications.</small>
 								</label>
 							</div>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="2"> 2. 經輔導來臺就學後，在臺停留未滿二年，因故退學或喪失學籍（得重新報名，以一次為限）。
+									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="2">
+										2. 經輔導來臺就學後，在臺停留未滿二年，因故退學或喪失學籍（得重新報名，以一次為限）。
+										<br/><small>After coming to Taiwan to study through counseling, I have stayed in Taiwan for less than two years, and dropped out of school or lost the student status for some reason (may re-apply once).</small>
 								</label>
 							</div>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="3"> 3. 曾經來臺就讀海外青年技術訓練班（短期研習非學位班）。
+									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="3">
+										3. 曾經來臺就讀海外青年技術訓練班（短期研習非學位班）。
+										<br/><small>Have come to Taiwan to study in the Overseas Youth Vocational Training Program (short-term study, not for a degree).</small>
 								</label>
 							</div>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="4"> 4. 辦理保留入學資格在案。
+									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="4">
+										4. 辦理保留入學資格在案。
+										<br/><small>The application for retaining the admission qualifications is on file.</small>
 								</label>
 							</div>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="5"> 5. 註冊在學。
+									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="5">
+										5. 註冊在學。
+										<br/><small>Registered in school.</small>
 								</label>
 							</div>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="6"> 6. 辦理休學中。
+									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="6">
+										6. 辦理休學中。
+										<br/><small>Application for suspension of study in progress.</small>
 								</label>
 							</div>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="7"> 7. 分發來臺就學後經入學學校以操行或學業成績不及格、違反法令或校規情節嚴重致遭退學或喪失學籍者。
+									<input class="form-check-input distributionMoreQuestion" name="distributionMore" type="radio" value="7">
+										7. 分發來臺就學後經入學學校以操行或學業成績不及格、違反法令或校規情節嚴重致遭退學或喪失學籍者。
+										<br/><small>Those who were expelled or lost the student status due to serious conduct issues, academic failure or violation of the laws or school regulations as determined by the school after being admitted to the school in Taiwan.</small>
 								</label>
 							</div>
 						</fieldset>
@@ -202,19 +223,26 @@
 					<div class="col-md-12">
 						<fieldset class="form-group">
 							<div>請問自報名截止日往前推算，已在僑居地連續居留多少年？</div>
+							<div>How many consecutive years have you lived in your place of residence, counting back from the registration deadline?</div>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input radio-stayLimit" name="stayLimit" type="radio" value="1"> 報名時未滿六年
+									<input class="form-check-input radio-stayLimit" name="stayLimit" type="radio" value="1">
+									報名時未滿六年
+									<br/><small>Less than six years at the time of application.</small>
 								</label>
 							</div>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input radio-stayLimit" name="stayLimit" type="radio" value="2"> 報名時未滿六年，但至入學當年度8月31日前滿六年
+									<input class="form-check-input radio-stayLimit" name="stayLimit" type="radio" value="2">
+									報名時未滿六年，但至入學當年度8月31日前滿六年
+									<br/><small>Less than six years at the time of application but will be reaching six years before August 31 in the year of admission.</small>
 								</label>
 							</div>
 							<div class="form-check">
 								<label class="form-check-label">
-									<input class="form-check-input radio-stayLimit" name="stayLimit" type="radio" value="3"> <a>報名時已滿六年</a>
+									<input class="form-check-input radio-stayLimit" name="stayLimit" type="radio" value="3">
+									報名時已滿六年
+									<br/><small>More than six years at the time of application.</small>
 								</label>
 							</div>
 						</fieldset>
@@ -228,7 +256,8 @@
 					</div>
 					<div class="col-md-12">
 						<div class="alert alert-warning alert-stayLimiCertif valid hide" role="alert">
-							<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 需填寫切結書
+							<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+							需填寫切結書 Need to fill out an affidavit
 						</div>
 					</div>
 				</div>
@@ -243,8 +272,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="alert alert-info" role="alert">
-							<i class="fa fa-exclamation-circle" aria-hidden="true"></i> 報名截止日可至
-							<a href="https://ocac-admiss.orbula.net/zh_tw/4year/brochure4" target="_blank">簡章</a> 查詢—海外青年訓練班簡章
+							<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+							報名截止日可至<a href="https://ocac-admiss.orbula.net/zh_tw/4year/brochure4" target="_blank">簡章</a> 查詢—海外青年訓練班簡章
+							<br/>
+							For inquiries on the application deadline, please refer to the <a href="https://ocac-admiss.orbula.net/zh_tw/4year/brochure4" target="_blank">prospectus</a>
 						</div>
 					</div>
 				</div>
@@ -252,6 +283,7 @@
 					<div class="col-md-12">
 						<fieldset class="form-group">
 							<div>報名截止日往前推算僑居地居留期間內，是否曾在某一年來臺停留超過 120 天？</div>
+							<div>Have you ever stayed in Taiwan for over 120 days of a particular year prior to the registration deadline and done so within the period of time spent in your country of residence? 120 天？</div>
 							<div class="form-check form-check-inline">
 								<label class="form-check-label">
 									<input class="form-check-input radio-hasBeenTaiwan" type="radio" name="hasBeenTaiwan" value="1"> 是
@@ -270,6 +302,7 @@
 						<div class="col-md-12">
 							<fieldset class="form-group">
 								<label>請就下列選項，擇一勾選，並檢附證明文件：</label>
+								<label>Please check one of the following options and attach supporting documents:</label>
 								<div class="form-check">
 									<label class="form-check-label">
 										<input class="form-check-input radio-whyHasBeenTaiwan" type="radio" name="whyHasBeenTaiwan" value="1"> 1. 就讀僑務主管機關舉辦之海外青年技術訓練班（短期研習非學位班）或中央主管教育行政機關認定之技術訓練專班。

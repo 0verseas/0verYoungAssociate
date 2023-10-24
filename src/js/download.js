@@ -4,6 +4,7 @@
 	*	cache DOM
 	*/
 	const $confirmedDeadlineText = $('.confirmed-deadline-text'); // 開放報名日期，緬甸跟大家不一樣
+	const $englishConfirmedDeadlineText = $('.english-confirmed-deadline-text'); // 開放報名日期，緬甸跟大家不一樣
 
 	/**
 	*	init
@@ -49,8 +50,10 @@
 			} else {
 				if(json.school_country_name === '緬甸'){
 					$confirmedDeadlineText.text(' 2023 年 11 月 29 日 ');
+					$englishConfirmedDeadlineText.text('November 29, 2023')
 				} else {
 					$confirmedDeadlineText.text(' 2024 年 02 月 28 日 ');
+					$englishConfirmedDeadlineText.text('February 28, 2024')
 				}
 			}
 			loading.complete();

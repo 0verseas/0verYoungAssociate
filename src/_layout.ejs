@@ -95,6 +95,8 @@
 			</nav>
 			<div class="alert alert-danger mt-2 alert-emailVerify hide" role="alert">
 				<strong>注意！</strong> 您的信箱尚未驗證，請儘速前往填寫信箱開啟驗證信。若您未收到驗證信，請按 <a id="btn-mailResend" href="javascript:;">這裡</a> 重送驗證信。
+				<br/>
+				<strong>Notice！</strong> Your e-mail account has not been verified. Please promptly go to your mail box to open the verification letter. If you have not received the verification letter, please click <a id="btn-mailResend" href="javascript:;">here</a> to resend the verification letter.
 			</div>
 
 			<hr>
@@ -107,32 +109,41 @@
 							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　資格檢視
 							<i class="fa fa-square-o yet pull-right"></i>
 							<i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+							<div>&emsp;<small >Review Status</small></div>
 						</a>
 						<a href="personalInfo.html" class="nav-item list-group-item list-group-item-action nav-personalInfo <%= current.source === 'personalInfo' ? 'active' : ''%>">
 							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　個人基本資料
 							<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+							<div>&emsp;<small >Personal basic information</small></div>
 							<div class="tip-qualify-first">&emsp;<small class="text-danger">(請先完成資格檢視)</small></div>
 						</a>
 						<a href="admission.html" class="nav-item list-group-item list-group-item-action nav-admission <%= current.source === 'admission' ? 'active' : ''%>">
 							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　分發志願選填
 							<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+							<div>&emsp;<small >Preferences of schools</small></div>
 							<div class="tip-deadline">&emsp;<small class="text-danger">(非開放時間)</small></div>
 							<div class="tip-personal-info-first">&emsp;<small class="text-danger">(請先完成個人基本資料填寫)</small></div>
 						</a>
 						<a href="upload.html" class="nav-item list-group-item list-group-item-action nav-upload <%= current.source === 'upload' ? 'active' : ''%>">
 							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　上傳簡章規定文件
 							<i class="fa fa-square-o yet pull-right"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+							<div>&emsp;<small >Upload documents specified by the prospectus</small></div>
 							<div class="tip-deadline">&emsp;<small class="text-danger">(非開放時間)</small></div>
 							<div class="tip-personal-info-first">&emsp;<small class="text-danger">(請先完成個人基本資料填寫)</small></div>
 						</a>
 						<a href="result.html" class="nav-item list-group-item list-group-item-action nav-result <%= current.source === 'result' ? 'active' : ''%>">
 							<i class="fa fa-chevron-right hide icon-arrow" aria-hidden="true"></i> 　志願檢視
 							<i class="fa fa-square-o yet pull-right hide"></i> <i class="done fa fa-check-square-o pull-right hide" aria-hidden="true"></i>
+							<div>&emsp;<small >Review preferences</small></div>
 							<div class="tip-admission-first">&emsp;<small class="text-danger">(請先選擇分發志願)</small></div>
 						</a>
 					</div>
 					<hr>
-					<button type="button" id="btn-all-set" class="btn btn-danger btn-block hide">確認並鎖定報名基本資料</button>
+					<button type="button" id="btn-all-set" class="btn btn-danger btn-block hide">
+						確認並鎖定報名基本資料
+						<br/>
+						Confirm and secure <br/> your application information
+					</button>
 					<div id="afterConfirmZone" style="display: none;">
 						<hr>
 						<div class="list-group">

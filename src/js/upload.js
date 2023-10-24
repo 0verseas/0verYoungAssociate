@@ -44,8 +44,10 @@
 
 			if(data.school_country_name === '緬甸'){
 				$confirmedDeadlineText.text(' 2023 年 11 月 29 日 ');
+				$confirmedDeadlineText.parent().html($confirmedDeadlineText.parent().html()+`<br/><small>Please complete the following steps before November 29, 2023:</samll>`);
 			} else {
 				$confirmedDeadlineText.text(' 2024 年 02 月 28 日 ');
+				$confirmedDeadlineText.parent().html($confirmedDeadlineText.parent().html()+`<br/><small>Please complete the following steps before February 28, 2024:</samll>`);
 			}
 		} else {
 			const data = await response.json();
