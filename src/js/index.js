@@ -35,7 +35,8 @@
             $downloadLinks.append(
                 '<a href="https://get.adobe.com/tw/reader/" target="_blank" class="list-group-item list-group-item-action">觀看中文PDF軟體</a>\n' +
                 '<a href="https://www.7-zip.org/" target="_blank" class="list-group-item list-group-item-action">解壓縮軟體</a>\n' +
-                '<a href="' + env.baseUrl + '/admission-data-correction-form/young-associate" target="_blank" class="list-group-item list-group-item-action">報名資料修正表</a>'
+                '<a href="' + env.baseUrl + '/admission-data-correction-form/young-associate" target="_blank" class="list-group-item list-group-item-action">報名資料修正表</a>\n' +
+				'<a href="https://drive.google.com/file/d/128FxaClqmsAoqcT3D6Xaj0sgFIW8QtMu/view?usp=drive_link" target="_blank" class="list-group-item list-group-item-action">中華民國僑務委員會海外青年技術訓練班填報系統(操作手冊)</a>'
 			);
 			const response = await student.getAdmissionCount();
 			if (!response.ok) { throw response; }
