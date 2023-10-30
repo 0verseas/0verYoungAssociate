@@ -40,7 +40,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label class="text-danger" for="name">* 姓名（中）</label>
+						<label class="text-danger" for="name">* 姓名（中）<small>Name(chinese)</small></label>
 						<input type="text" class="form-control" id="name" placeholder="姓名">
 						<small class="text-danger">「請以正體字書寫」 </small>
 						<small class="text-danger">範例：張家華</small>
@@ -48,7 +48,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<label class="text-danger" for="engName">* 姓名（英）</label>
+						<label class="text-danger" for="engName">* 姓名（英）<small>Name(English in capital letters)</small></label>
 						<input type="text" class="form-control" id="engName" placeholder="Name">
 						<small class="text-danger">請注意與身分證件、畢業證書所載一致。</small>
 					</div>
@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<fieldset class="form-group" id="Gender_FieldSet">
-						<label class="text-danger" id="gender">* 性別</label><br>
+						<label class="text-danger" id="gender">* 性別<small>Sex</small></label><br>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
 								<input class="form-check-input gender" type="radio" name="gender" value="F"> 女
@@ -72,7 +72,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<label class="text-danger" for="birthday">* 生日</label>
+						<label class="text-danger" for="birthday">* 生日<small>Date of Birth</small></label>
 						<input class="form-control input-datepicker" data-provide="datepicker" data-date-format="yyyy/mm/dd" id="birthday">
 					</div>
 				</div>
@@ -80,7 +80,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label class="text-danger" id="birthPlace">* 出生地</label>
+						<label class="text-danger" id="birthPlace">* 出生地<small>Birthplace</small></label>
 						<div class="row">
 							<div class="col-md-6">
 								<select class="form-control" id="birthContinent">
@@ -177,7 +177,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label class="text-danger">* 地區或國別</label>
+						<label class="text-danger">* 地區或國別<small>Country</small></label>
 						<div class="row">
 							<div class="col-md-6">
 								<select class="form-control" id="residenceContinent">
@@ -194,7 +194,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label class="text-danger" for="residentId">* 身分證號碼（ID no.）</label>
+						<label class="text-danger" for="residentId">* 身分證號碼（ID no.）<small>National ID NO.</small></label>
 						<input type="text" class="form-control" id="residentId" placeholder="ID no.">
 						<small class="text-danger hide" id="residentHongKongIdExample">格式範例：A123456(7)</small>
 						<small class="text-danger hide" id="residentMacauIdExample">格式範例：1234567(8)</small>
@@ -202,7 +202,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="residentPassportNo">護照號碼</label>
+						<label for="residentPassportNo">護照號碼<small>Passport No.</small></label>
 						<input type="text" class="form-control" id="residentPassportNo" placeholder="Passport no.">
 					</div>
 				</div>
@@ -210,7 +210,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label class="text-danger" for="residentPhoneCode">* 電話</label>
+						<label class="text-danger" for="residentPhoneCode">* 電話<small>Home Phone No.</small></label>
 						<div class="row">
 							<div class="col-3">
 								<input type="text" class="form-control" id="residentPhoneCode" maxlength="5" placeholder="國碼" onblur="this.value=this.value.replace(/[^\d]/g,'')">
@@ -225,7 +225,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label class="text-danger" for="residentCellphoneCode">* 手機</label>
+						<label class="text-danger" for="residentCellphoneCode">* 手機<small>Mobile Phone No.</small></label>
 						<div class="row">
 							<div class="col-3">
 								<input type="text" class="form-control" id="residentCellphoneCode" maxlength="5" placeholder="國碼" onblur="this.value=this.value.replace(/[^\d]/g,'')">
@@ -240,7 +240,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label class="text-danger" for="residentAddress">* 地址</label>
+						<label class="text-danger" for="residentAddress">* 地址<small>sex</small></label>
 						<input type="text" class="form-control" id="residentAddress" placeholder="地址">
 						<small class="form-text text-danger">請以「中文」或「英文」填寫</small>
 					</div>
@@ -281,7 +281,7 @@
 				</div>
 				<div class="col-6 col-md-6">
 					<div class="form-group">
-						<label for="taiwanIdType">證件號碼</label>
+						<label for="taiwanIdType">證件號碼<small>Republic of China National ID No. / Republic of China Resident Certificate No.</small></label>
 						<input type="text" class="form-control" id="taiwanIdNo" placeholder="">
 						<small class="text-muted">該「證件類型」的號碼</small>
 						<small class="text-danger hide" id="taiwanIdExample1">居留證範例：<br/>（舊）FC12345678<br/>（新）B876543210</small>
@@ -292,7 +292,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label for="taiwanPassport">臺灣護照號碼</label>
+						<label for="taiwanPassport">臺灣護照號碼<small>Republic of China Passport No.</small></label>
 						<input type="text" class="form-control" id="taiwanPassport" placeholder="Passport no.">
 					</div>
 				</div>
@@ -337,7 +337,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label class="text-danger">* 學校所在國別</label>
+						<label class="text-danger">* 學校所在國別<small>Country of School</small></label>
 						<div class="row">
 							<div class="col-md-6">
 								<select class="form-control" id="schoolContinent">
@@ -359,7 +359,7 @@
 			<div id="schoolTypeForm" class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label class="text-danger" for="schoolType">* 學校類型</label>
+						<label class="text-danger" for="schoolType">* 學校類型<small>Type of School</small></label>
 						<select class="form-control" id="schoolType">
 						</select>
 					</div>
@@ -380,7 +380,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<label class="text-danger" for="schoolNameSelect">* 學校名稱</label>
+						<label class="text-danger" for="schoolNameSelect">* 學校名稱<small>Name of School</small></label>
 						<select class="form-control" id="schoolNameSelect"  data-live-search="true" data-width="100%" data-style="btn-white">
 						</select>
 					</div>
@@ -391,7 +391,7 @@
 			<div id="schoolNameTextForm" class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label class="text-danger" for="schoolNameText">* 學校名稱</label>
+						<label class="text-danger" for="schoolNameText">* 學校名稱<small>Name of School</small></label>
 						<input class="form-control" type="text" id="schoolNameText">
 					</div>
 				</div>
@@ -427,7 +427,7 @@
 				<div class="col-md-12 col-lg-12">
 					<div class="card">
 						<div class="card-header">
-							監護人1
+							監護人1<small>Father / Mother</small>
 						</div>
 						<div class="card-body">
 							<div class="row">
@@ -456,13 +456,13 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="text-danger" for="dadName">* 姓名（中）</label>
+											<label class="text-danger" for="dadName">* 姓名（中）<small>Name (Chinese)</small></label>
 											<input type="text" class="form-control" id="dadName" placeholder="姓名">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="text-danger" for="dadEngName">* 姓名（英）</label>
+											<label class="text-danger" for="dadEngName">* 姓名（英）<small>Name (English)</small></label>
 											<input type="text" class="form-control" id="dadEngName" placeholder="Name">
 										</div>
 									</div>
@@ -470,13 +470,13 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="text-danger" for="dadBirthday">* 生日</label>
+											<label class="text-danger" for="dadBirthday">* 生日<small>Date of Birth</small></label>
 											<input class="form-control input-datepicker" data-provide="datepicker" data-date-format="yyyy/mm/dd" id="dadBirthday">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="dadJobForm text-danger" for="dadJob" >* 職業</label>
+											<label class="dadJobForm text-danger" for="dadJob" >* 職業<small>Profession</small></label>
 											<input type="text" class="dadJobForm form-control" id="dadJob" placeholder="">
 										</div>
 									</div>
@@ -484,7 +484,7 @@
 								<div class="row" id = "dad-phone">
 									<div class="col-md-12">
 										<div class="form-group">
-											<label class="text-danger" for="dadPhoneCode">* 聯絡電話</label>
+											<label class="text-danger" for="dadPhoneCode">* 聯絡電話<small>Telephone No.</small></label>
 											<div class="row">
 												<div class="col-3">
 													<input type="text" class="form-control" id="dadPhoneCode" maxlength="5" placeholder="國碼" onblur="this.value=this.value.replace(/[^\d]/g,'')">
@@ -502,7 +502,7 @@
 					<br>
 					<div class="card">
 						<div class="card-header">
-							監護人2
+							監護人2<small>Father / Mother</small>
 						</div>
 						<div class="card-body">
 							<div class="row">
@@ -531,13 +531,13 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="text-danger" for="momName">* 姓名（中）</label>
+											<label class="text-danger" for="momName">* 姓名（中）<small>Name (Chinese)</small></label>
 											<input type="text" class="form-control" id="momName" placeholder="姓名">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="text-danger" for="momEngName">* 姓名（英）</label>
+											<label class="text-danger" for="momEngName">* 姓名（英）<small>Name (English)</small></label>
 											<input type="text" class="form-control" id="momEngName" placeholder="Name">
 										</div>
 									</div>
@@ -545,13 +545,13 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="text-danger" for="momBirthday">* 生日</label>
+											<label class="text-danger" for="momBirthday">* 生日<small>Date of Birth</small></label>
 											<input class="form-control input-datepicker" data-provide="datepicker" data-date-format="yyyy/mm/dd" id="momBirthday">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="momJobForm text-danger" for="momJob">* 職業</label>
+											<label class="momJobForm text-danger" for="momJob">* 職業<small>Profession</small></label>
 											<input type="text" class="momJobForm form-control" id="momJob" placeholder="">
 										</div>
 									</div>
@@ -559,7 +559,7 @@
 								<div class="row" id = "mom-phone">
 									<div class="col-md-12">
 										<div class="form-group">
-											<label class="text-danger" for="momPhoneCode">* 聯絡電話</label>
+											<label class="text-danger" for="momPhoneCode">* 聯絡電話<small>Telephone No.</small></label>
 											<div class="row">
 												<div class="col-3">
 													<input type="text" class="form-control" id="momPhoneCode" maxlength="5" placeholder="國碼" onblur="this.value=this.value.replace(/[^\d]/g,'')">
