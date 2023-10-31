@@ -88,7 +88,7 @@
     const $schoolGraduateAt = $('#schoolGraduateAt'); // 畢業時間
 
     // 家長資料
-    // 監護人1(父親)
+    // 父親
     const $dadStatus = $('.dadStatus'); // 存歿
     const $dadDataForm = $('#form-dadData'); // 資料表單
     const $dadName = $('#dadName'); // 姓名（中）
@@ -99,7 +99,7 @@
     const $dadPhoneCode = $('#dadPhoneCode'); // 聯絡電話國碼
     const $dadPhone = $('#dadPhone'); // 聯絡電話
     const $dadPhoneForm = $('#dad-phone');// 父親電話欄位
-    // 監護人2(母親)
+    // 母親
     const $momStatus = $('.momStatus'); // 存歿
     const $momDataForm = $('#form-momData'); // 資料表單
     const $momName = $('#momName'); // 姓名（中）
@@ -110,7 +110,7 @@
     const $momPhoneCode = $('#momPhoneCode'); // 聯絡電話國碼
     const $momPhone = $('#momPhone'); // 聯絡電話
     const $momPhoneForm = $('#mom-phone');// 母親電話欄位
-    // 監護人（棄置）
+    // 監護人
     const $guardianForm = $('#form-guardian'); // 資料表單
     const $guardianName = $('#guardianName'); // 姓名（中）
     const $guardianEngName = $('#guardianEngName'); // 姓名（英）
@@ -381,11 +381,11 @@
                 [document.getElementById("momPhoneCode").value, document.getElementById("momPhone").value] = _splitWithSemicolon(formData.mom_phone);
 
                 // 監護人
-                // $guardianName.val(formData.guardian_name);
-                // $guardianEngName.val(formData.guardian_eng_name);
-                // $guardianBirthday.val(formData.guardian_birthday);
-                // $guardianJob.val(formData.guardian_job);
-                // [document.getElementById("guardianPhoneCode").value, document.getElementById("guardianPhone").value] = _splitWithSemicolon(formData.guardian_phone);
+                $guardianName.val(formData.guardian_name);
+                $guardianEngName.val(formData.guardian_eng_name);
+                $guardianBirthday.val(formData.guardian_birthday);
+                $guardianJob.val(formData.guardian_job);
+                [document.getElementById("guardianPhoneCode").value, document.getElementById("guardianPhone").value] = _splitWithSemicolon(formData.guardian_phone);
 
                 // init 在臺聯絡人
                 $twContactName.val(formData.tw_contact_name);
@@ -716,12 +716,7 @@
         $schoolNameSelect.selectpicker('refresh');
     }
 
-    async function _chDadStatus() {
-        if(_currentMomStatus === "undefined" && $(this).val() ==="undefined"){
-            $("input[name=dadStatus][value='" + _currentDadStatus + "']").prop("checked", true);
-            await swal({title: `請至少填寫一位監護人資料`, type:"error", confirmButtonText: '確定', allowOutsideClick: false});
-            return;
-        }
+    function _chDadStatus() {
         _currentDadStatus = $(this).val();
 
         _switchDadDataForm();
@@ -752,12 +747,7 @@
         _switchGuardianForm();
     }
 
-    async function _chMomStatus() {
-        if(_currentDadStatus === "undefined" && $(this).val() ==="undefined"){
-            $("input[name=momStatus][value='" + _currentMomStatus + "']").prop("checked", true);
-            await swal({title: `請至少填寫一位監護人資料`, type:"error", confirmButtonText: '確定', allowOutsideClick: false});
-            return;
-        }
+    function _chMomStatus() {
         _currentMomStatus = $(this).val();
         _switchMomDataForm();
     }
@@ -978,14 +968,14 @@
         }
 
         // 父母皆為「不詳」，須填寫監護人資料
-        // if (_currentDadStatus === "undefined" && _currentMomStatus === "undefined") {
-        //     _checkValue($guardianName,'Chinese','監護人姓名（中）',true);
-        //     _checkValue($guardianEngName,'English','監護人姓名（英）',true);
-        //     _checkValue($guardianBirthday,'Date','監護人生日',true);
-        //     _checkValue($guardianJob,'General','監護人職業',true);
-        //     _checkValue($guardianPhoneCode,'Number','監護人聯絡電話國碼',true);
-        //     _checkValue($guardianPhone,'Number','監護人聯絡電話號碼',true);
-        // }
+        if (_currentDadStatus === "undefined" && _currentMomStatus === "undefined") {
+            _checkValue($guardianName,'Chinese','監護人姓名（中）',true);
+            _checkValue($guardianEngName,'English','監護人姓名（英）',true);
+            _checkValue($guardianBirthday,'Date','監護人生日',true);
+            _checkValue($guardianJob,'General','監護人職業',true);
+            _checkValue($guardianPhoneCode,'Number','監護人聯絡電話國碼',true);
+            _checkValue($guardianPhone,'Number','監護人聯絡電話號碼',true);
+        }
 
         // 在臺資料（選填）轉換字串
         if ($taiwanIdNo.val() !== "") _checkValue($taiwanIdNo,'IdNumber','在臺證件號碼',true,$taiwanIdType.val());
