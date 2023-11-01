@@ -387,6 +387,8 @@
 			await $signUpForm.find(`.radio-whyHasBeenTaiwan[value=${data.reason_selection_of_stay_over_120_days_in_taiwan}]`).prop('checked',true).trigger('change');
 
 		// 國籍
-		_initCitizenshipList(data.citizenship);
+		if(!!data.citizenship){
+			_initCitizenshipList(data.citizenship);
+		}
 	}
 })();
