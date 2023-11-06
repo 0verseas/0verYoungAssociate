@@ -267,8 +267,13 @@
 			<button type="button" data-sortNum="${_wishList[i].sortNum}" class="btn btn-danger btn-sm remove-wish"><i class="fa fa-times" aria-hidden="true"></i></button>
 			</td>
 			<td>
-			${_wishList[i]['cardCode']} ${groupHTML} ｜ ${_wishList[i].school}<br>
-			${_wishList[i].dept} ${_wishList[i].engDept}
+			${_wishList[i]['cardCode']} ${groupHTML} ｜ ${_wishList[i].school}
+			<br>
+			${_wishList[i].engSchool}
+			<br/>
+			${_wishList[i].dept}
+			<br/>
+			${_wishList[i].engDept}
 			</td>
 			<td class="text-right td-wish-num">
 			<div class="input-group">
