@@ -53,7 +53,8 @@
 			resOrder.forEach((value, index) => { // 志願列表格式整理
 				let add = {
 					id: value.id, // 系所編號
-					school: value.school.title, // 校名
+					school: value.school.title, // 中文校名
+					engSchool: value.school.eng_title, // 英文校名
 					cardCode: value.card_code,
 					dept: value.title, // 中文系名
 					engDept: value.eng_title, // 英文系名
@@ -197,8 +198,12 @@
 			<tr${medicalHTML}>
 				<td>
 					${item['cardCode']} ${groupHTML} ｜ ${item.school}
+					<br/>
+					${item.engSchool}
 					<br>
-					${item.dept} ${item.engDept}
+					${item.dept}
+					<br/>
+					${item.engDept}
 				</td>
 				<td class="text-right">
 					<button type="button" data-sortNum="${item.sortNum}" class="btn btn-info btn-sm add-wish">
