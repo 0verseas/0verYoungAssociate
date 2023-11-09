@@ -4,6 +4,8 @@
 */
 
 const $departmenList = $('#departmen-list');
+const $searchFilterInput = $('#search'); // 搜尋欄
+const $searchBtn = $('#search-btn'); // 搜尋按鈕
 
 /**
 *	init
@@ -14,6 +16,9 @@ _init();
 /**
 *	bind event
 */
+
+$searchBtn.on('click', _filterInput); // 學生列表篩選
+$searchFilterInput.keypress((e) => { e.keyCode == 13 && _filterInput(); }); // 偵測是否在輸入欄按下 enter
 
 async function _init() {
     try {
@@ -74,6 +79,16 @@ function shuffle(array) {
         let j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
+}
+
+function _filterInput(){
+    let value = $searchFilterInput.val().toLowerCase();
+
+    $departmenList.find('tr').filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+
+    return;
 }
 
 
