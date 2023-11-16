@@ -240,7 +240,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label class="text-danger" for="residentAddress">* 地址<small>sex</small></label>
+						<label class="text-danger" for="residentAddress">* 地址<small>address</small></label>
 						<input type="text" class="form-control" id="residentAddress" placeholder="地址">
 						<small class="form-text text-danger">請以「中文」或「英文」填寫</small>
 					</div>
@@ -274,8 +274,8 @@
 						<label for="taiwanIdType">Document type</label>
 						<select class="form-control" id="taiwanIdType">
 							<option value="">請選擇</option>
-							<option value="身分證">身分證</option>
-							<option value="居留證">居留證</option>
+							<option value="身分證">身分證 <small>Taiwan ID NO.</small></option>
+							<option value="居留證">居留證 <small>ARC NO.</small></option>
 						</select>
 					</div>
 				</div>
@@ -433,20 +433,20 @@
 							<div class="row">
 								<div class="col-md-8">
 									<div class="form-group">
-										<label class="text-danger" for="">* 存歿</label><br>
+										<label class="text-danger" for="">* 存歿 <small>Status</small></label><br>
 										<div class="form-check form-check-inline">
 											<label class="form-check-label">
-												<input class="form-check-input dadStatus" type="radio" name="dadStatus" value="alive" checked> 存
+												<input class="form-check-input dadStatus" type="radio" name="dadStatus" value="alive" checked> 存 <small>Alive</small>
 											</label>
 										</div>
 										<div class="form-check form-check-inline">
 											<label class="form-check-label">
-												<input class="form-check-input dadStatus" type="radio" name="dadStatus" value="deceased"> 歿
+												<input class="form-check-input dadStatus" type="radio" name="dadStatus" value="deceased"> 歿 <small>Deceased</small>
 											</label>
 										</div>
 										<div class="form-check form-check-inline">
 											<label class="form-check-label">
-												<input class="form-check-input dadStatus" type="radio" name="dadStatus" value="undefined"> 不詳
+												<input class="form-check-input dadStatus" type="radio" name="dadStatus" value="undefined"> 不詳 <small>Unknown</small>
 											</label>
 										</div>
 									</div>
@@ -508,20 +508,20 @@
 							<div class="row">
 								<div class="col-md-8">
 									<div class="form-group" id="momStatus">
-										<label class="text-danger" for="">* 存歿</label><br>
+										<label class="text-danger" for="">* 存歿 <small>Status</small></label><br>
 										<div class="form-check form-check-inline">
 											<label class="form-check-label">
-												<input class="form-check-input momStatus" type="radio" name="momStatus" value="alive" checked> 存
+												<input class="form-check-input momStatus" type="radio" name="momStatus" value="alive" checked> 存 <small>Alive</small>
 											</label>
 										</div>
 										<div class="form-check form-check-inline">
 											<label class="form-check-label">
-												<input class="form-check-input momStatus" type="radio" name="momStatus" value="deceased"> 歿
+												<input class="form-check-input momStatus" type="radio" name="momStatus" value="deceased"> 歿 <small>Deceased</small>
 											</label>
 										</div>
 										<div class="form-check form-check-inline">
 											<label class="form-check-label">
-												<input class="form-check-input momStatus" type="radio" name="momStatus" id="btn-motherUnknown" value="undefined"> 不詳
+												<input class="form-check-input momStatus" type="radio" name="momStatus" id="btn-motherUnknown" value="undefined"> 不詳 <small>Unknown</small>
 											</label>
 										</div>
 									</div>
@@ -651,19 +651,19 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="twContactName">姓名</label>
+						<label for="twContactName">姓名<small>Name</small></label>
 						<input type="text" class="form-control" id="twContactName" placeholder="">
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="twContactRelation">關係</label>
+						<label for="twContactRelation">關係<small>Relation</small></label>
 						<input type="text" class="form-control" id="twContactRelation" placeholder="">
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="twContactPhone">聯絡電話</label>
+						<label for="twContactPhone">聯絡電話<small>Phone NO.</small></label>
 						<input type="text" class="form-control" id="twContactPhone" placeholder="" onblur="this.value=this.value.replace(/[^\d]/g,'')">
 					</div>
 				</div>
@@ -671,7 +671,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label for="twContactAddress">地址</label>
+						<label for="twContactAddress">地址<small>Address</small></label>
 						<input type="text" class="form-control" id="twContactAddress" placeholder="">
 					</div>
 				</div>
@@ -679,13 +679,13 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="twContactWorkplaceName">服務機關名稱</label>
+						<label for="twContactWorkplaceName">服務機關名稱<small>Workplace Name</small></label>
 						<input type="text" class="form-control" id="twContactWorkplaceName" placeholder="">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="twContactWorkplacePhone">服務機關電話</label>
+						<label for="twContactWorkplacePhone">服務機關電話<small>Workplace Phone NO.</small></label>
 						<input type="text" class="form-control" id="twContactWorkplacePhone" placeholder="" onblur="this.value=this.value.replace(/[^\d]/g,'')">
 					</div>
 				</div>
@@ -693,7 +693,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label for="twContactWorkplaceAddress">服務機關地址</label>
+						<label for="twContactWorkplaceAddress">服務機關地址<small>Workplace Address</small></label>
 						<input type="text" class="form-control" id="twContactWorkplaceAddress" placeholder="">
 					</div>
 				</div>
