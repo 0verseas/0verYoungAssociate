@@ -226,7 +226,13 @@
 
 	function  _checkConfirm(json) {
 		if (!!json.confirmed_at) {
-			$checkBtn.removeClass('btn-danger').addClass('btn-success').prop('disabled', true).text('已確認並鎖定報名基本資料').show() && $afterConfirmZone.show();
+			$checkBtn
+				.removeClass('btn-danger')
+				.addClass('btn-success')
+				.prop('disabled', true)
+				.html(`已確認並鎖定報名基本資料<br/>Confirm and secure<br/>your application information`)
+				.show()
+			&& $afterConfirmZone.show();
 		} else if (!json.has_qualify) {
 			// 沒有輸入資格驗證的狀況下，隱藏提交按鈕
 			$checkBtn.hide();
