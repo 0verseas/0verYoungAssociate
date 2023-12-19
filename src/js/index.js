@@ -60,7 +60,7 @@
 		};
 		grecaptcha.ready(function() {
             grecaptcha.execute(env.reCAPTCHA_site_key, {
-              action: 'YoungAssociateLogin'
+              action: 'OYVTPLogin'
             }).then(function(token) {
                 // token = document.getElementById('btn-login').value
                 loginData.google_recaptcha_token=token;

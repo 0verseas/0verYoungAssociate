@@ -113,7 +113,7 @@
 		loading.start();
 		grecaptcha.ready(function() {
             grecaptcha.execute(env.reCAPTCHA_site_key, {
-              action: 'MalaysiaSpringRegister'
+              action: 'OYVTPRegister'
             }).then(function(token) {
                 data.google_recaptcha_token=token;
             }).then(function(){
