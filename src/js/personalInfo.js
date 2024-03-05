@@ -983,7 +983,7 @@
         _checkValue($taiwanPhone,'Number');
         _checkValue($taiwanAddress,'General');
         // 在臺聯絡人（選填）轉換字串
-        _checkValue($twContactName,'Chinese');
+        _checkValue($twContactName,'General');
         _checkValue($twContactRelation,'General');
         _checkValue($twContactPhone,'Number');
         _checkValue($twContactAddress,'General');
