@@ -1,0 +1,104 @@
+/*輸入查詢資料處*/
+#form-studentInfo {
+    /*外邊框*/
+    border: #FFAA33 medium dashed;
+    padding: 2%;  /*上 左右 下*/
+}
+
+/*查詢結果*/
+#form-result {
+    padding-top: 2%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.title {
+    text-align: center;
+}
+
+td {
+    vertical-align: middle;
+}
+
+
+/* RWD table*/
+.rwd-table {
+    background: #fff;
+    overflow: hidden;
+}
+.rwd-table tr:nth-of-type(2n) {
+    background: #FFF;
+}
+.rwd-table th, .rwd-table td {
+    margin: 0.2em 1em;
+}
+.rwd-table {
+    min-width: 100%;
+}
+.rwd-table th {
+    display: none;
+}
+.rwd-table td {
+    border:none;
+    position:relative;
+    padding-left:50% !important;
+    text-align: left !important;
+    display: block;
+    padding: 0.5em;
+}
+.rwd-table td:before {
+    position:absolute;
+    top : 6px;
+    left:6px;
+    width: 45%;
+    padding-right:10px;
+    white-space:nowrap;
+    font-weight:bold;
+}
+.rwd-table td:nth-of-type(1):before {
+    content: "報名序號";
+}
+.rwd-table td:nth-of-type(2):before {
+    content: "僑生編號";
+}
+.rwd-table td:nth-of-type(3):before {
+    content: "中、英文姓名";
+}
+.rwd-table td:nth-of-type(4):before {
+    content: "錄取校系";
+}
+.rwd-table td:nth-of-type(5):before {
+    content: "僑居地國別";
+}
+.rwd-table td:nth-of-type(6):before {
+    content: "發文日期";
+}
+.rwd-table td:nth-of-type(7):before {
+    content: "發文字號";
+}
+
+.rwd-table th, .rwd-table td {
+    text-align: left;
+}
+.rwd-table th, .rwd-table td:before {
+    color: #000;
+    font-weight: bold;
+}
+@media (min-width: 880px) {
+    .rwd-table td:before {
+        display: none;
+    }
+    .rwd-table th, .rwd-table td {
+        display: table-cell;
+        padding: 0.25em 0.5em;
+    }
+    .rwd-table th:first-child, .rwd-table td:first-child {
+        padding-left: 0;
+    }
+    .rwd-table th:last-child, .rwd-table td:last-child {
+        padding-right: 0;
+    }
+    .rwd-table th, .rwd-table td {
+        padding: 1em !important;
+    }
+}

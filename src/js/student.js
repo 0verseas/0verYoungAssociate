@@ -290,6 +290,18 @@ const student = (() => {
 		})
 	}
 
+	// 學生想要查榜，去後端看榜單
+	function getAdmissionRoster(data) {
+		return fetch(baseUrl + `/young-associate/search-admission-roster`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(data),
+			credentials: 'include'
+		});
+	}
+
 	return {
 		setHeader,
 		getAdmissionCount,
@@ -316,7 +328,8 @@ const student = (() => {
 		sizeConversion,
 		getStudentUploadedAdmissionBrochureRequirmentFiles,
 		uploadAdmissionBrochureRequirmentFiles,
-		deleteStudentUploadedAdmissionBrochureRequirmentFiles
+		deleteStudentUploadedAdmissionBrochureRequirmentFiles,
+		getAdmissionRoster
 	};
 
 })();
