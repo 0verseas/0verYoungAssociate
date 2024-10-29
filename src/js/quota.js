@@ -50,9 +50,6 @@ async function _init() {
                                 ${departmentData.eng_title}
                             </a>
                         </td>
-                        <td style="text-align: center; vertical-align:middle;">
-                            ${departmentData.admission_selection_ratify_quota}
-                        </td>
                     </tr>
                 `;
                 count++;

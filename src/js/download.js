@@ -49,11 +49,14 @@
 				});
 			} else {
 				if(json.school_country_name === '緬甸'){
-					$confirmedDeadlineText.text(' 2023 年 11 月 29 日 ');
-					$englishConfirmedDeadlineText.text('November 29, 2023')
+					$confirmedDeadlineText.text(' 2024 年 11 月 29 日 ');
+					$englishConfirmedDeadlineText.text('November 29, 2024')
+				} else if(json.school_country_name === '泰國' && json.school_type === '泰北未立案之華文中學') {
+					$confirmedDeadlineText.text(' 2025 年 02 月 28 日 ');
+					$englishConfirmedDeadlineText.text('February 28, 2025')
 				} else {
-					$confirmedDeadlineText.text(' 2024 年 02 月 28 日 ');
-					$englishConfirmedDeadlineText.text('February 28, 2024')
+					$confirmedDeadlineText.text(' 2025 年 03 月 31 日 ');
+					$englishConfirmedDeadlineText.text('March 31, 2025')
 				}
 			}
 			loading.complete();
