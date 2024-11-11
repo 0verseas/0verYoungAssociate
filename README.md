@@ -4,7 +4,7 @@
 ## Deploy Local Develop Environment
 ### Install Dependencies
 ```
-git clone https://github.com/0verseas/0verYoungAssociategit
+git clone https://github.com/0verseas/0verYoungAssociate.git
 cd 0verYoungAssociate
 npm install
 ```
@@ -27,14 +27,14 @@ $ npm run build
 ### Startup Preparation
 if dev then
 ```
-git clone https://github.com/0verseas/0verYoungAssociategit.git ./0verYoungAssociategit-dev/
-cd ./0verYoungAssociategit-dev/
+git clone https://github.com/0verseas/0verYoungAssociate.git ./0verYoungAssociate-dev/
+cd ./0verYoungAssociate-dev/
 git checkout dev
 ```
 if official then
 ```
-git clone https://github.com/0verseas/0verYoungAssociategit.git
-cd ./0verYoungAssociategit/
+git clone https://github.com/0verseas/0verYoungAssociate.git
+cd ./0verYoungAssociate/
 ```
 
 ```
