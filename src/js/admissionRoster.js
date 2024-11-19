@@ -43,8 +43,8 @@
         $nameString = $name.val().trim(); // 取得名字並去除前後空白
         $name.val($nameString);
 
-        if ($("input[name='gender']:checked").val() === undefined){  // 沒填寫生理性別
-            swal({title: `請選擇生理性別`, type:"warning", confirmButtonText: '確定', allowOutsideClick: false});
+        if ($("input[name='gender']:checked").val() === undefined){  // 沒填寫性別
+            swal({title: `請選擇性別`, type:"warning", confirmButtonText: '確定', allowOutsideClick: false});
             return;
         }
 
