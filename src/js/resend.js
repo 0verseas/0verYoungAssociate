@@ -32,12 +32,27 @@
 				email
 			}
 			student.sendResetPassword(data)
+			.then((res) => {
+				if (res.ok) {
+					return res.json();
+				} else {
+					throw res;
+				}
+			})
 			.then(() => {
 				swal({title: `信件已送出，請至信箱確認。`, type:"info", confirmButtonText: '確定', allowOutsideClick: false})
 				.then(()=>{
 					location.href = "./index.html";
 				});
 			})
+			.catch((err) => {
+				err.json && err.json().then((data) => {
+					// console.error(data);
+					swal({title: `ERROR`, text: data.messages[0], type:"error", confirmButtonText: '確定', allowOutsideClick: false});
+
+				})
+				loading.complete();
+			});
 		} else {
 			swal({title: `信箱格式錯誤`, type:"error", confirmButtonText: '確定', allowOutsideClick: false});
 		}

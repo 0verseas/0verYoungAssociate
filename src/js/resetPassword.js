@@ -13,7 +13,7 @@
 	const $resetPassword = $('#input-resetPassword');
 	const $resetPasswordConfirm = $('#input-resetPasswordConfirm');
 	const $resetPasswordSubmitBtn = $('#btn-resetPasswordSubmit');
-	
+
 	const $passwordWarning = $('#password-warning');
 
 	/**
