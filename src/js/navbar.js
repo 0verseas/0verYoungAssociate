@@ -94,6 +94,7 @@
 		.catch((err) => {
 			err.json && err.json().then((data) => {
 				console.error(data.messages[0]);
+				swal({title: `Error`, html: data.messages[0], type:"info", confirmButtonText: '確定', allowOutsideClick: false})
 			});
 			loading.complete();
 		})
